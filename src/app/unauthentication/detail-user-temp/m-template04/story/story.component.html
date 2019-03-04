@@ -1,0 +1,36 @@
+<div class="mt-section mt-story bg-white" id="story">
+  <div class="container mt-container text-center">
+
+    <h2 class="mt-section__title">Our Story</h2>
+
+    <div class="mt-timeline">
+      <div class="mt-timeline__top"></div>
+
+      <div class="mt-timeline__wrp">
+        <div class="mt-timeline__item" *ngFor="let store of stories; let i = index">
+          <div class="mt-timeline__icon">
+            <i [class]="icons[i]?.name"></i>
+          </div>
+
+          <div class="mt-timeline__ctn d-flex">
+            <div class="mt-timeline__img">
+              <div class="mt-timeline__img-wrp" [style.backgroundImage]="'url('+ allImages[i].img_url_lg +')'"></div>
+            </div>
+
+            <div class="mt-timeline__txt">
+              <div class="mt-timeline__txt-wrp">
+                <h4 class="mt-timeline__title">{{ store.title }}</h4>
+                <span class="mt-timeline__date">June 20, 2013</span>
+                <p class="mt-timeline__desc">
+                  {{ store.content }}
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-timeline__bottom"></div>
+    </div>
+  </div>
+</div>

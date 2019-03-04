@@ -1,0 +1,133 @@
+.mt-slider {
+  @include bg-img();
+  height: 100vh;
+
+  &__middle {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 70%;
+  }
+
+  &-1 {
+    .mt-slider__decor-frame {
+      height: 380px;
+      margin: 100px auto;
+      position: relative;
+      width: 380px;
+
+      &::after {
+        @include decor-animate('../../assets/images/decor/flower2.png');
+      }
+
+      &::before {
+        -webkit-background-size: cover;
+        background: url('../../assets/images/decor/flower2_bird.png');
+        background-size: cover;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 115px;
+        position: absolute;
+        right: 0;
+        width: 120px;
+        z-index: 2;
+      }
+
+      img {
+        border-radius: 50%;
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    &__left,
+    &__right {
+      min-width: 200px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      h4 {
+        font-family: 'dancing';
+        font-size: 80px;
+      }
+    }
+
+    &__left {
+      margin-right: 80px;
+      right: 100%;
+    }
+
+    &__right {
+      left: 100%;
+      margin-left: 80px;
+    }
+
+    @media (max-width: 991px) {
+      .mt-slider__decor-frame  {
+        height: 280px;
+        width: 280px;
+
+        &::after {
+          height: 385px;
+          width: 385px;
+        }
+
+        &::before {
+          height: 100px;
+          width: 100px;
+        }
+      }
+
+      &__left {
+        margin-right: 30px;
+      }
+
+      &__right {
+        margin-left: 30px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      &__left,
+      &__right {
+        display: none;
+      }
+    }
+  }
+
+  &-2 {
+    @extend .mt-slider-1;
+
+    .mt-slider__decor-frame {
+      &::after {
+        @include decor-animate('../../assets/images/decor/flower4.png');
+        height: 500px;
+        left: -8px;
+        width: 500px;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .mt-slider__decor-frame  {
+
+        &::after {
+          height: 386px;
+          left: 0;
+          top: 0;
+          width: 386px;
+        }
+      }
+    }
+  }
+}

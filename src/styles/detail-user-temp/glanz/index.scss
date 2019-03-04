@@ -1,0 +1,21 @@
+.mt-glz {
+  font-family: 'arimaMadurai';
+  font-size: 18px;
+
+  a {
+    color: #6f6f6f;
+
+    &:hover {
+      color: #6f6f6f;
+    }
+  }
+
+  @import 'header';
+  @import 'cover';
+  @import 'section';
+  @import 'slider';
+  @import 'count-down';
+  @import 'event';
+  @import 'rsvp';
+  @import 'story';
+}

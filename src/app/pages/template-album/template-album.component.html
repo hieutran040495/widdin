@@ -1,0 +1,129 @@
+<!-- <div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">Album</h3>
+</div>
+
+<div class="v-content temp-invitation">
+  <div class="v-features">
+    <div class="v-features__right">
+      <div class="v-btn__upload">
+        <button class="btn v-btn w-100">Tạo</button>
+        <input (change)="getPhotos($event)"
+          type="file" name="uploadPhotos"
+          [attr.accept]="accept_file" multiple>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="row v-card__wrp">
+      <div class="col-xl-3 col-md-4 col-6 mb-3 p-0" *ngFor="let item of album">
+
+          <div class="card v-card" [id]="'temp-'+item.id">
+            <div class="v-card__img">
+              <a [routerLink]="[item.id]">
+                <app-v-image imgWidth="100%"
+                  imgHeight="135px"
+                  [imgUrl]="item.image_cover || '/assets/images/default-black.png'">
+                </app-v-image>
+              </a>
+            </div>
+
+            <div class="card-body">
+              <div class="v-card-features d-flex justify-content-between">
+                <h5 class="v-text card-title v-card__title font-weight-bold v-text-ellipsis mb-0">{{ item.title }}</h5>
+
+                <div class="dropdown v-dropdown--outline">
+                  <button class="btn v-btn--icon-pink border-0 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-ellipsis-h"></i>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" [routerLink]="['/manager-templates/album/edit', item.id]">Chỉnh sửa</a>
+                    <a class="dropdown-item" href="javascript:void(0)" (click)="openDeleteModal(item)">Xóa</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="v-loader" *ngIf="isLoading">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+
+    <div *ngIf="!isLoading && !album.length" class="text-center">
+      Không có dữ liệu
+    </div>
+  </div>
+</div> -->
+
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+      <div class="v-block__fetures-right">
+        <div class="v-btn-upload">
+          <button class="btn v-btn w-100">Tạo</button>
+          <input (change)="getPhotos($event)"
+            type="file" name="uploadPhotos"
+            [attr.accept]="accept_file" multiple>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-block__item-ctn mt-4">
+      <div class="row">
+        <div class="col-xl-4 col-sm-6 mb-3" *ngFor="let item of album">
+          <div class="card v-post">
+            <div class="v-post__img">
+              <a [routerLink]="[item.id]">
+                <app-v-image imgWidth="100%"
+                  imgHeight="250"
+                  [imgUrl]="item.image_cover || '/assets/images/default-black.png'">
+                </app-v-image>
+              </a>
+
+              <div class="v-card__icon-hover">
+                <div class="d-flex flex-column">
+                  <a title="Sửa"
+                    [routerLink]="['/manager-templates/album/edit', item.id]"
+                    class="btn v-btn-outline v-link--icon">
+                    <i class="fa fa-pencil"></i>
+                  </a>
+
+                  <button type="button" title="Xóa"
+                    class="btn v-btn-outline"
+                    (click)="openDeleteModal(item)">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body v-post__body">
+              <h5 class="card-title v-post__title v-text-ellipsis">
+                <a [routerLink]="[item.id]">{{ item.title }}</a>
+              </h5>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+
+      <div *ngIf="!isLoading && !album.length" class="text-center">
+        Không có dữ liệu
+      </div>
+    </div>
+  </div>
+</div>
+

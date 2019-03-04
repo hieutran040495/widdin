@@ -1,0 +1,38 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">Tạo ảnh đại diện</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body">
+  <div>
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="4 / 4"
+      [resizeToWidth]="500"
+      format="jpeg"
+      (imageCroppedBase64)="imageCropped($event)"
+      (imageLoaded)="imageLoaded()"
+      style="height: 500px"
+      imageQuality="85"
+      (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+    <!-- <img [src]="croppedImage" /> -->
+  </div>
+
+  <div class="v-btn-group mt-5">
+    <button type="button"
+      class="btn v-btn--gray mr-2"
+      (click)="closeModal()">
+      Hủy
+    </button>
+
+    <button type="submit"
+      class="btn v-btn"
+      (click)="cropped()">
+      Hoàn tất
+    </button>
+  </div>
+</div>

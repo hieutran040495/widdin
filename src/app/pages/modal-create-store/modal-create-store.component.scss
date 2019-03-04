@@ -1,0 +1,22 @@
+.card {
+  flex-direction: row;
+
+  &-img-top {
+    height: 94px;
+    width: 94px;
+  }
+
+  &-text {
+    color: #90949c;
+    font-size: 12px;
+
+    a {
+      color: #b88ea1;
+      font-size: 12px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

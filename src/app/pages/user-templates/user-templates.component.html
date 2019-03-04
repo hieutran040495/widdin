@@ -1,0 +1,94 @@
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+      <div class="v-block__fetures-right">
+        <a routerLink="/templates" [queryParams]="{ redirect: 'manager-templates/user-templates' }" class="btn v-btn">Tạo</a>
+      </div>
+    </div>
+
+    <div class="v-block__item-ctn mt-4">
+      <div class="row v-card__wrp">
+        <div class="col-xl-4  col-sm-6 v-product mb-3" *ngFor="let item of userTemplates">
+          <div class="card v-card">
+            <div class="v-product__img">
+              <app-v-image imgWidth="100%"
+                imgHeight="300"
+                [imgUrl]="item.template.image_cover || '/assets/images/default-black.png'">
+              </app-v-image>
+
+              <div class="v-card__icon-hover">
+                <div class="d-flex flex-column">
+                  <a title="Xem"
+                    [routerLink]="['/templates', 1, item.template.slug]"
+                    [hidden]="!item.is_active"
+                    class="btn v-btn-outline v-link--icon">
+                    <i class="fa fa-search"></i>
+                  </a>
+
+                  <button type="button" title="Chọn"
+                    [hidden]="item.is_active"
+                    class="btn v-btn-outline"
+                    [disabled]="isSubmiting"
+                    (click)="activeTemplate(item.template.id)">
+                    <i class="fa fa-check"></i>
+                  </button>
+
+                  <button type="button" title="Bỏ chọn"
+                    [hidden]="!item.is_active"
+                    class="btn v-btn-outline"
+                    [disabled]="isSubmiting"
+                    (click)="deactivate(item.template.id)">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h6 class="card-subtitle mb-2">Card subtitle</h6>
+              <h5 class="card-title">{{ item.template.name }}</h5>
+              <div class="v-product__separator"></div>
+              <p class="v-product__price">{{ item.created_at_date }}</p>
+            </div>
+
+            <div class="v-product__sale" *ngIf="item.is_active">
+              <span>Show</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+
+      <div *ngIf="!isLoading && !userTemplates.length" class="text-center">
+        Không có dữ liệu
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <ng-template #deleteTemplate>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left text-center">Xóa giao diện</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="mb-0 v-font--lg text-center">Bạn có muốn xóa giao diện <strong>{{ userTemplate.template.title }}</strong> không?</p>
+  </div>
+
+  <div class="modal-footer v-modal__footer mt-3">
+    <button type="button" class="btn v-btn--gray w-100"
+      (click)="close()">Hủy</button>
+
+    <button type="button" class="btn v-btn w-100"
+      (click)="deleteTemp()">Có</button>
+  </div>
+</ng-template> -->

@@ -1,0 +1,81 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">{{ curMode.isNew ? 'Tạo' : 'Sửa' }} câu chuyện</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="temp-form" autocomplete="off" novalidate name="storyForm" #storyForm="ngForm">
+    <div class="form-group row">
+      <label for="date" class="col-sm-3 col-form-label">Ngày<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <input type="text"
+          placeholder="Vui lòng chọn ngày"
+          class="form-control"
+          bsDatepicker
+          #dp="bsDatepicker"
+          name="startDate"
+          [(ngModel)]="story.start_date_picker"
+          [bsConfig]="bsConfig">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="title" class="col-sm-3 col-form-label">Tiêu đề<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <input type="text"
+          [ngClass]="{ 'is-invalid': title.dirty && title.errors }"
+          class="form-control"
+          id="title"
+          placeholder="Tiêu đề của câu chuyện"
+          [(ngModel)]="story.title"
+          name="title"
+          #title="ngModel"
+          [pattern]="rules.whitespace"
+          required>
+
+          <div class="invalid-feedback"
+            *ngIf="title.dirty && title.errors?.required">Vui lòng nhập tiêu đề của câu chuyện</div>
+
+          <div class="invalid-feedback"
+            *ngIf="title.dirty && title.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="content" class="col-sm-3 col-form-label">Nội dung</label>
+      <div class="col-sm-9">
+        <textarea class="form-control"
+          id="content" rows="3"
+          placeholder="Nội dung câu chuyện"
+          [(ngModel)]="story.content"
+          name="content"
+          #contentStory="ngModel"></textarea>
+      </div>
+    </div>
+
+    <div class="v-btn-group mt-5">
+      <button type="button"
+        class="btn v-btn--gray mr-2"
+        (click)="closeModal()">
+        Hủy
+      </button>
+
+      <button type="submit"
+        class="btn v-btn mr-0"
+        (click)="editStory()"
+        [hidden]="curMode.isNew"
+        [disabled]="isSubmitting || !storyForm.form.valid">
+        Sửa
+      </button>
+
+      <button type="submit"
+        class="btn v-btn"
+        (click)="createStory()"
+        [hidden]="curMode.isEdit"
+        [disabled]="isSubmitting || !storyForm.form.valid">
+        Tạo
+      </button>
+    </div>
+  </form>
+</div>

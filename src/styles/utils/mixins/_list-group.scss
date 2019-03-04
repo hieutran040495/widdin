@@ -1,0 +1,19 @@
+// $col-bg: bg of list-group-item
+// $col-txt: color of text
+
+@mixin list-group($col-bg, $col-txt) {
+  .list-group {
+    &-item {
+      &.active {
+        background-color: $col-bg;
+        border-color: $col-bg;
+        color: $col-txt;
+      }
+
+      &:hover {
+        background-color: $col-bg;
+        color: $col-txt;
+      }
+    }
+  }
+}

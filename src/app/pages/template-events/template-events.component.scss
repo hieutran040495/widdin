@@ -1,0 +1,15 @@
+@import '../../../styles/utils/mixins/table';
+
+$values: (
+  1: 35px,
+  2: 125px,
+  3: 110px,
+  4: 95px,
+  5: 102px,
+  6: 150px,
+  7: 150px,
+  8: 175px,
+  9: 90px,
+);
+
+@include table-col($values);

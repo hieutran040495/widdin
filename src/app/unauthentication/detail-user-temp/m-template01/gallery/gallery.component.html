@@ -1,0 +1,33 @@
+<div class="mt-section bg-white" id="gallery">
+  <div class="container mt-container text-center">
+    <p class="mt-section__top">
+      <img src="assets/images/animations/flower7.gif" alt="">
+    </p>
+
+    <h2 class="mt-section__title">Gallery</h2>
+
+    <!-- <div class="mt-gallery__filter mb-4">
+      <a href="javascript:void(0)"
+        (click)="viewAlbum()">Tat ca</a>
+
+      <a href="javascript:void(0)"
+        *ngFor="let item of albums"
+        (click)="viewAlbum(item.id)">{{ item.title }}</a>
+    </div>
+
+    <div class="mt-gallery__grid row">
+      <div class="col-md-4 col-sm-6 mb-3" *ngFor="let itemImg of galleryImages">
+        <div class="mt-gallery__item">
+          <a href="javascript:void(0)">
+            <img  class="w-100 h-100" [src]="itemImg.img_url_sm" alt="">
+          </a>
+        </div>
+      </div>
+    </div> -->
+
+    <app-mt-gallery imgWidth="100%"
+      imgHeight="245px"
+      [albums]="albums">
+    </app-mt-gallery>
+  </div>
+</div>

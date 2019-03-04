@@ -1,0 +1,149 @@
+<!-- <div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">Câu chuyện</h3>
+</div>
+
+<div class="v-content">
+  <div class="v-features">
+    <div class="v-features__right">
+      <button type="button"
+        (click)="openModalCEStory()"
+        [disabled]="isLoading"
+        class="btn v-btn">Tạo
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="table-responsive mt-4">
+      <table class="table v-table" *ngIf="!isLoading && tempStories.length > 0">
+        <thead>
+          <tr>
+            <th><span class="v-table__col v-table__col-1">#</span></th>
+            <th><span class="v-table__col v-table__col-2">Tiêu đề</span></th>
+            <th><span class="v-table__col v-table__col-3">Ngày tháng</span></th>
+            <th><span class="v-table__col v-table__col-4">Nội dung</span></th>
+            <th><span class="v-table__col v-table__col-5"></span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let story of tempStories">
+            <td>
+              <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ story.id }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="story.title">{{ story.title }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-3 v-text-ellipsis" [title]="story.date">{{ story.start_date_string }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-4 v-text-ellipsis" [title]="story.content">{{ story.content }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-5">
+                <button title="Sửa"
+                  class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                  (click)="openModalCEStory(story)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+
+                <button title="Xoắ"
+                  class="btn btn-outline-danger btn-sm  border-0"
+                  (click)="openDeleteStory(story)">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="!isLoading && !tempStories.length" class="text-center">
+        Không có dữ liệu
+      </div>
+
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+      <div class="v-block__fetures-right">
+        <button type="button"
+          (click)="openModalCEStory()"
+          [disabled]="isLoading"
+          class="btn v-btn">Tạo
+        </button>
+      </div>
+    </div>
+
+    <div class="v-block__item-ctn mt-4">
+      <div class="table-responsive">
+        <table class="table v-table" *ngIf="!isLoading && tempStories.length > 0">
+          <thead>
+            <tr>
+              <th><span class="v-table__col v-table__col-1">#</span></th>
+              <th><span class="v-table__col v-table__col-2">Tiêu đề</span></th>
+              <th><span class="v-table__col v-table__col-3">Ngày tháng</span></th>
+              <th><span class="v-table__col v-table__col-4">Nội dung</span></th>
+              <th><span class="v-table__col v-table__col-5"></span></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let story of tempStories">
+              <td>
+                <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ story.id }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="story.title">{{ story.title }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-3 v-text-ellipsis" [title]="story.date">{{ story.start_date_string }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-4 v-text-ellipsis" [title]="story.content">{{ story.content }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-5">
+                  <button title="Sửa"
+                    class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                    (click)="openModalCEStory(story)">
+                    <i class="fa fa-pencil"></i>
+                  </button>
+
+                  <button title="Xoắ"
+                    class="btn v-btn-outline btn-sm border-0 text-dark"
+                    (click)="openDeleteStory(story)">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div *ngIf="!isLoading && !tempStories.length" class="text-center">
+          Không có dữ liệu
+        </div>
+
+        <div class="v-loader" *ngIf="isLoading">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

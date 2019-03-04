@@ -1,0 +1,5 @@
+<div class="v-img__wrap" [ngStyle]="{'width': imgWidth, 'height': getImgHeight()}">
+  <img [src]="imgUrl" (error)="onError()" (load)="onLoad()">
+  <div class="v-img__item" [ngStyle]="{'background-image': bgUrl }" *ngIf="!loadingImg"></div>
+  <div class="v-loader-img" *ngIf="loadingImg"></div>
+</div>

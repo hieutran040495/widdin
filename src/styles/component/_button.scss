@@ -1,0 +1,54 @@
+.v-btn {
+  // Color
+  &--gray {
+    @include btn-bg($btn-gray, $txt-brown, $btn-gray-hover, $txt-brown);
+  }
+
+  &-outline--black {
+    @include btn-outline($col-black, $txt-black);
+  }
+
+  // Upload
+  &-upload {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    input[type='file'] {
+      font-size: 100px;
+      left: 0;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  // Delete image
+  &__img-del {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+
+    a {
+      background: rgba(0, 0, 0, .38);
+      display: inline-block;
+      font-size: 15px;
+      height: 30px;
+      text-align: center;
+      width: 30px;
+
+      &:hover {
+        color: #ccc !important;
+      }
+    }
+
+    .fa {
+      vertical-align: middle;
+    }
+  }
+
+  &-group {
+    @include btn-group(100px);
+  }
+}

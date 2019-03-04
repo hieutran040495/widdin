@@ -1,0 +1,39 @@
+%multiple-row {
+  /*! autoprefixer: off */
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.v-text {
+  // Display dot when text so long
+  &-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &--row-2 {
+      @extend %multiple-row;
+
+      -webkit-line-clamp: 2;
+    }
+  }
+
+  &--light-gray {
+    color: $col-light-gray;
+  }
+
+  &--brown {
+    color: $txt-brown;
+
+    &:hover {
+      color: $txt-brown;
+    }
+  }
+
+  &--red {
+    color: $txt-red;
+  }
+}

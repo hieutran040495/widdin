@@ -1,0 +1,13 @@
+@import '../../../styles/utils/mixins/table';
+
+$values: (
+  1: 35px,
+  2: 125px,
+  3: 110px,
+  4: 85px,
+  5: 125px,
+  6: 150px,
+  7: 80px,
+);
+
+@include table-col($values);

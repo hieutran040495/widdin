@@ -1,0 +1,151 @@
+<!-- <div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">RSVP</h3>
+</div>
+
+<div class="v-content">
+  <div class="mt-4">
+    <div class="table-responsive mt-4">
+      <table class="table v-table">
+        <thead>
+          <tr>
+            <th><span class="v-table__col v-table__col-1">#</span></th>
+            <th><span class="v-table__col v-table__col-2">Tên</span></th>
+            <th><span class="v-table__col v-table__col-3">Số điện thoại</span></th>
+            <th><span class="v-table__col v-table__col-4">Số người</span></th>
+            <th><span class="v-table__col v-table__col-5">Tên sự kiện</span></th>
+            <th><span class="v-table__col v-table__col-6">Tin nhắn</span></th>
+            <th><span class="v-table__col v-table__col-7"></span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let rsvp of listRSVP">
+            <td>
+              <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ rsvp.id }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="rsvp.name">{{ rsvp.name }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-3 v-text-ellipsis" [title]="rsvp.phone">{{ rsvp.phone }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-4 v-text-ellipsis" [title]="rsvp.guestes">{{ rsvp.guestes }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-5 v-text-ellipsis" [title]="rsvp.event.name">{{ rsvp.event.name }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-6 v-text-ellipsis" [title]="rsvp.message">{{ rsvp.message }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-7">
+                <button title="Chi tiết"
+                  class="btn v-btn-outline btn-sm border-0 text-dark"
+                  (click)="openCVModal(rsvp)">
+                  <i class="fa fa-eye"></i>
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> -->
+
+<div class="v-block">
+  <div class="v-block__item">
+    <!-- <div class="v-block__features justify-content-end">
+      <div class="v-block__fetures-right">
+        <button type="button"
+          (click)="openCVModal()"
+          [disabled]="isLoading"
+          class="btn v-btn">Tạo
+        </button>
+      </div>
+    </div> -->
+
+    <div class="v-block__item-ctn">
+      <div class="table-responsive">
+        <table class="table v-table">
+          <thead>
+            <tr>
+              <th><span class="v-table__col v-table__col-1">#</span></th>
+              <th><span class="v-table__col v-table__col-2">Tên</span></th>
+              <th><span class="v-table__col v-table__col-3">Số điện thoại</span></th>
+              <th><span class="v-table__col v-table__col-4">Số người</span></th>
+              <th><span class="v-table__col v-table__col-5">Tên sự kiện</span></th>
+              <th><span class="v-table__col v-table__col-6">Tin nhắn</span></th>
+              <th><span class="v-table__col v-table__col-7"></span></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let rsvp of listRSVP">
+              <td>
+                <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ rsvp.id }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="rsvp.name">{{ rsvp.name }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-3 v-text-ellipsis" [title]="rsvp.phone">{{ rsvp.phone }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-4 v-text-ellipsis" [title]="rsvp.guestes">{{ rsvp.guestes }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-5 v-text-ellipsis" [title]="rsvp.event.name">{{ rsvp.event.name }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-6 v-text-ellipsis" [title]="rsvp.message">{{ rsvp.message }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-7">
+                  <!-- <button title="Sửa"
+                    class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                    (click)="openCreateModal(rsvp)">
+                    <i class="fa fa-pencil"></i>
+                  </button> -->
+
+                  <!-- <button title="Xoắ"
+                    class="btn v-btn-outline btn-sm border-0 text-dark"
+                    (click)="openDeleteModal(deleteRSVP, rsvp)">
+                    <i class="fa fa-trash-o"></i>
+                  </button> -->
+
+                  <button title="Chi tiết"
+                    class="btn v-btn-outline btn-sm border-0 text-dark"
+                    (click)="openCVModal(rsvp)">
+                    <i class="fa fa-eye"></i>
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <ng-template #deleteRSVP>
+  <div class="modal-header">
+    <h5 class="modal-title pull-left text-center">Xóa châm ngôn</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="mb-0 v-font--lg text-center">Bạn có muốn xóa châm ngôn này không?</p>
+  </div>
+
+  <div class="modal-footer v-modal__footer mt-3">
+    <button type="button" class="btn v-btn--gray w-100"
+      (click)="close()">Hủy</button>
+
+    <button type="button" class="btn v-btn w-100"
+      (click)="deleteMaxim()">Có</button>
+  </div>
+</ng-template> -->

@@ -1,0 +1,19 @@
+.v-block__features {
+  &-left {
+    .form-group {
+      margin-right: 15px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+
+    &-left {
+      flex-direction: column;
+
+      .form-group {
+        margin-right: 0;
+      }
+    }
+  }
+}

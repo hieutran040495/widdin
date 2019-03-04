@@ -1,0 +1,5 @@
+@mixin box-shadow($var1, $var2, $var3, $var4, $color) {
+  -webkit-box-shadow: $var1 $var2 $var3 $var4 $color;
+  border: 1px solid $color;
+  box-shadow: $var1 $var2 $var3 $var4 $color;
+}

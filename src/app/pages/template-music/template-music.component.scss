@@ -1,0 +1,41 @@
+.temp-music {
+  &__audio {
+    margin: 0 auto 25px;
+    text-align: center;
+    width: 70%;
+
+    audio {
+      background-color: #f0f3f3;
+      border-radius: 5px;
+      width: 100%;
+    }
+  }
+
+  &__list {
+    a {
+      color: #484848;
+      text-decoration: none;
+    }
+
+    tr {
+      &:hover {
+        @extend .temp-music__selected;
+      }
+    }
+  }
+
+  &__selected {
+    color: #c44065;
+
+    a {
+      color: #c44065;
+    }
+  }
+
+  @media (max-width: 575px) {
+    &__audio {
+      text-align: left;
+      width: 100%;
+    }
+  }
+}

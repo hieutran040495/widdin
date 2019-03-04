@@ -1,0 +1,22 @@
+.v-card {
+  height: 100%;
+
+  &:hover {
+    .card-body {
+      display: block;
+    }
+  }
+
+  .card-body {
+    background-color: rgba(0, 0, 0, .59);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: absolute;
+    right: 0;
+
+    h5 {
+      color: #fff;
+    }
+  }
+}

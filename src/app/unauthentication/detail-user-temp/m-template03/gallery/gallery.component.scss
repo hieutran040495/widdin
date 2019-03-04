@@ -1,0 +1,11 @@
+.mt-section__top {
+  img {
+    height: 150px;
+  }
+
+  @media (max-width: 991px) {
+    img {
+      height: 120px;
+    }
+  }
+}

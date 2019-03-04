@@ -1,0 +1,25 @@
+// $bg-col: Background color
+
+@mixin pagination($bg-col) {
+  .page {
+    &-item {
+      &.active {
+        .page-link {
+          background-color: $bg-col;
+          border-color: $bg-col;
+          color: $txt-white;
+        }
+      }
+    }
+
+    &-link {
+      color: $txt-black;
+
+      &:hover {
+        background-color: $bg-col;
+        border-color: $bg-col;
+        color: $txt-white;
+      }
+    }
+  }
+}

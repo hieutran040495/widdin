@@ -1,0 +1,79 @@
+// $col-bg: Background color of navbar
+// $col-main: Color hover for dropdown, togger
+
+@mixin bg-navbar($col-bg, $col-main) {
+  background-color: $col-bg;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+
+  &.navbar {
+    .navbar-toggler {
+      border: 0;
+      outline: 0;
+      transition: all .3s;
+
+      &:hover {
+        color: $col-main;
+      }
+    }
+
+    .nav-link {
+      font-size: 13px;
+      text-transform: uppercase;
+      transition: all .3s;
+    }
+
+    .nav-item {
+      align-self: center;
+    }
+
+    .dropdown {
+      &-toggle::after {
+        display: none;
+      }
+
+      &-header {
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      &-item {
+        font-size: 11px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        text-transform: uppercase;
+        transition: all .3s;
+
+        &.active,
+        &:hover {
+          background-color: $col-main;
+          color: $col-white;
+        }
+      }
+
+      &-menu {
+        border: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, .15);
+        border-radius: 2px;
+      }
+    }
+
+    @media (max-width: 991px) {
+      .nav-item {
+        align-self: flex-start;
+        border-top: 1px solid $border;
+        width: 100%;
+      }
+
+      .nav-link {
+        &--plus {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      .dropdown-menu {
+        border: 0;
+      }
+    }
+  }
+}

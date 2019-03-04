@@ -1,0 +1,28 @@
+body,
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #fff;
+  color: $txt-brown;
+
+  p,
+  span,
+  a,
+  .btn {
+    color: $txt-black;
+    @include font-size(md);
+  }
+
+  a {
+    transition: all .3s;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+@import 'color';
+@import 'portlet';

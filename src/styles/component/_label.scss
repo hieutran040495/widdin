@@ -1,0 +1,11 @@
+.v-required {
+  color: $txt-red;
+  display: inline-block;
+  margin-left: 3px;
+  margin-top: -10px;
+  vertical-align: middle;
+}
+
+.v-required.hidden {
+  display: none;
+}

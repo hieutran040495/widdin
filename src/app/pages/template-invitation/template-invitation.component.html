@@ -1,0 +1,96 @@
+<div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">Thư mời</h3>
+</div>
+
+<div class="v-content temp-invitation">
+  <div class="mt-4">
+    <form class="v-form" autocomplete="off" novalidate name="invitationForm" #invitationForm="ngForm">
+      <div class="form-group row">
+        <label for="address" class="col-sm-3 col-form-label">Địa chỉ<span class="v-required">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" 
+            [ngClass]="{ 'is-invalid': address.dirty && address.errors }"
+            class="form-control" 
+            id="address" 
+            placeholder="Địa chỉ tố chức"
+            [(ngModel)]="tempInvitation.address"
+            name="address"
+            #address="ngModel"
+            [pattern]="rules.whitespace"
+            required>
+
+            <div class="invalid-feedback"
+              *ngIf="address.dirty && address.errors?.required">Vui lòng nhập địa chỉ</div>
+
+            <div class="invalid-feedback"
+              *ngIf="address.dirty && address.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="date" class="col-sm-3 col-form-label">Ngày<span class="v-required">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" 
+            [ngClass]="{ 'is-invalid': startDate.dirty && startDate.errors }"
+            class="form-control" 
+            id="date" 
+            placeholder="Ngày tổ chức"
+            [(ngModel)]="tempInvitation.start_date"
+            name="date"
+            #startDate="ngModel"
+            [pattern]="rules.whitespace"
+            required>
+
+            <div class="invalid-feedback"
+              *ngIf="startDate.dirty && startDate.errors?.required">Vui lòng nhập ngày tổ chức</div>
+
+            <div class="invalid-feedback"
+              *ngIf="startDate.dirty && startDate.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="time" class="col-sm-3 col-form-label">Thời gian<span class="v-required">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" 
+            [ngClass]="{ 'is-invalid': startTime.dirty && startTime.errors }"
+            class="form-control" 
+            id="time" 
+            placeholder="Thời gian tổ chức"
+            [(ngModel)]="tempInvitation.start_time"
+            name="time"
+            #startTime="ngModel"
+            [pattern]="rules.whitespace"
+            required>
+
+            <div class="invalid-feedback"
+              *ngIf="startTime.dirty && startTime.errors?.required">Vui lòng nhập giờ tổ chức</div>
+
+            <div class="invalid-feedback"
+              *ngIf="startTime.dirty && startTime.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="memo" class="col-sm-3 col-form-label">Mô tả</label>
+        <div class="col-sm-9">
+          <textarea class="form-control" 
+            id="memo" rows="3"
+            placeholder="Mô tả sự kiện"
+            [(ngModel)]="tempInvitation.memo"
+            name="memo"
+            #memo="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="v-btn-group mt-5">
+        <button type="submit" 
+          class="btn v-btn"
+          (click)="submitInvitation()"
+          [disabled]="isLoading || !invitationForm.form.valid">
+          Hoàn thành
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

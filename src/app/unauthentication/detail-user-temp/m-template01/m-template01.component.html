@@ -1,0 +1,37 @@
+<div class="mt-glz" *ngIf="!isLoading && userTempInfo.id">
+  <app-m-template01-header
+    [couple]="userTempInfo.couple"
+    [mainEvent]="userTempInfo.main_event">
+  </app-m-template01-header>
+
+  <app-m-template01-slider
+    [couple]="userTempInfo.couple"
+    [mainEvent]="userTempInfo.main_event"
+    [imgCover]="userTempInfo.backgrounds[0]">
+  </app-m-template01-slider>
+
+  <app-m-template01-story
+    [story]="userTempInfo.stories[0]">
+  </app-m-template01-story>
+
+  <app-m-template01-count-down
+    [mainEvent]="userTempInfo.main_event"
+    [imgCover]="userTempInfo.backgrounds[1]">
+  </app-m-template01-count-down>
+
+  <app-m-template01-event
+    [events]="userTempInfo.events">
+  </app-m-template01-event>
+
+  <app-m-template01-rsvp
+    [events]="userTempInfo.events"
+    [imgCover]="userTempInfo.backgrounds[2]">
+  </app-m-template01-rsvp>
+
+  <app-m-template01-gallery [hidden]="!userTempInfo.albums.length"
+    [albums]="userTempInfo.albums">
+  </app-m-template01-gallery>
+
+  <app-m-template01-footer [imgCover]="userTempInfo.backgrounds[3]"></app-m-template01-footer>
+</div>
+

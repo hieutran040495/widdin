@@ -1,0 +1,7 @@
+// $bottom: Display icon-hover compare to bottom
+// $right: Display icon-hover compare to right
+
+@mixin icon-hover($bottom, $right) {
+  bottom: $bottom;
+  right: $right;
+}

@@ -1,0 +1,32 @@
+.v-widget {
+  // margin-bottom: 60px;
+
+  &__heading {
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+
+    h6 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+
+  &__avatar {
+    img {
+      border-radius: 50%;
+      height: 178px;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 991px) {
+    &__avatar {
+      img {
+        border-radius: 0;
+      }
+    }
+  }
+}
+

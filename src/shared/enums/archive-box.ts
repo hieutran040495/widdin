@@ -1,0 +1,16 @@
+export const ARCHIVE_BOX_TITLE = {
+  'templates': 'Giao diện',
+  'couple-info': 'Cặp đôi',
+  'manager-templates': 'Cặp đôi',
+  'stories': 'Câu chuyện',
+  'maxims': 'Châm ngôn',
+  'events': 'Sự kiện',
+  'album': 'Album',
+  // 'stories': 'Câu chuyện',
+  // 'stories': 'Câu chuyện',
+  // 'stories': 'Câu chuyện',
+  // 'stories': 'Câu chuyện',
+  // 'stories': 'Câu chuyện',
+  // 'stories': 'Câu chuyện',
+  // 'stories': 'Câu chuyện',
+};

@@ -1,0 +1,17 @@
+.mt-section__top {
+  img {
+    height: 130px;
+  }
+
+  @media (max-width: 991px) {
+    img {
+      height: 100px;
+    }
+  }
+}
+
+.mt-gallery {
+  &__item {
+    border-radius: 0 !important;
+  }
+}

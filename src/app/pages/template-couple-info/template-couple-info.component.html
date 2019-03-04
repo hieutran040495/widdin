@@ -1,0 +1,244 @@
+<div class="v-block">
+  <form class="" autocomplete="off" novalidate name="coupleForm" #coupleForm="ngForm">
+    <div class="v-block__item cp-ce__upload">
+      <div class="v-block__sub-title mb-4">
+        <h4 class="text-uppercase mb-0">Thông tin cặp đôi</h4>
+      </div>
+
+      <div class="v-block__item-ctn">
+        <div class="d-flex cp-ce__upload-ctn justify-content-between d-flex">
+          <div class="cp-ce__upload-item">
+            <div class="cp-ce__upload-img">
+              <div class="cp-ce__checking hidden" id="loader_img_1">
+                <div class="v-loader-img"></div>
+              </div>
+              <img id="img_1" [src]="tempCouple.img_url_first_person_sm" alt="" class="w-100 h-100 imgFile">
+            </div>
+
+            <p class="mt-1 font-weight-bold text-center">Người 1</p>
+
+            <div class="mt-3 v-btn-upload">
+              <button class="btn v-btn-outline w-100">Chọn ảnh</button>
+              <input (change)="getAvatar($event, 'img_1')"
+                type="file" name="firstPerAvatar"
+                [attr.accept]="accept_file">
+            </div>
+          </div>
+
+          <div class="cp-ce__upload-item">
+            <div class="cp-ce__upload-img">
+              <div class="cp-ce__checking hidden" id="loader_img_2">
+                <div class="v-loader-img"></div>
+              </div>
+              <img id="img_2" [src]="tempCouple?.img_url_second_person_sm" alt="" class="w-100 h-100 imgFile">
+            </div>
+
+            <p class="mt-1 font-weight-bold text-center">Người 2</p>
+
+            <div class="mt-3 v-btn-upload">
+              <button class="btn v-btn-outline w-100">Chọn ảnh</button>
+              <input (change)="getAvatar($event, 'img_2')"
+                type="file" name="secondPerAvatar"
+                [attr.accept]="accept_file">
+            </div>
+          </div>
+
+          <div class="cp-ce__upload-item">
+            <div class="cp-ce__upload-img">
+              <div class="cp-ce__checking hidden" id="loader_image">
+                <div class="v-loader-img"></div>
+              </div>
+              <img id="image" [src]="tempCouple.img_url_sm" alt="" class="w-100 h-100 imgFile">
+            </div>
+
+            <p class="mt-1 font-weight-bold text-center">Chung</p>
+
+            <div class="cp-ce__upload-btn mt-3 v-btn-upload">
+              <button class="btn v-btn-outline w-100">Chọn ảnh</button>
+              <input (change)="getAvatar($event, 'image')"
+                type="file" name="boldPerAvatar"
+                [attr.accept]="accept_file">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-block__item cp-ce__person">
+      <div class="v-block__sub-title mb-4">
+        <h4 class="text-uppercase mb-0">Thông tin người 1</h4>
+      </div>
+
+      <div class="v-block__item-ctn cp-ce__person-ctn">
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Họ và tên<span class="v-required">*</span></label>
+          <div class="col-xl-6">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': firstPerson.dirty && firstPerson.errors }"
+              class="form-control"  placeholder="Vui lòng nhập họ và tên của người 1"
+              name="firstPerson"
+              [(ngModel)]="tempCouple.name_first_person"
+              #firstPerson="ngModel"
+              [pattern]="rules.whitespace"
+              required>
+
+            <div class="invalid-feedback"
+              *ngIf="firstPerson.dirty && firstPerson.errors?.required">Vui lòng nhập tên</div>
+
+            <div class="invalid-feedback"
+              *ngIf="firstPerson.dirty && firstPerson.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Link fb</label>
+          <div class="col-xl-8">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': firstPerFb.dirty && firstPerFb.errors }"
+              class="form-control" placeholder="Vui lòng nhập link fb"
+              name="firstPerFb"
+              [(ngModel)]="tempCouple.fb_first_person"
+              #firstPerFb="ngModel"
+              [pattern]="rules.whitespace">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Link twitter</label>
+          <div class="col-xl-8">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': firstPerTwitter.dirty && firstPerTwitter.errors }"
+              class="form-control"  placeholder="Vui lòng nhập link twitter"
+              name="firstPerTwitter"
+              [(ngModel)]="tempCouple.twitter_first_person"
+              #firstPerTwitter="ngModel"
+              [pattern]="rules.whitespace">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Link instagram</label>
+          <div class="col-xl-8">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': firstPerInsta.dirty && firstPerInsta.errors }"
+              class="form-control"  placeholder="Vui lòng nhập link instagram"
+              name="firstPerInsta"
+              [(ngModel)]="tempCouple.instagram_first_person"
+              #firstPerInsta="ngModel"
+              [pattern]="rules.whitespace">
+          </div>
+        </div>
+
+        <div class="form-group row mb-0">
+          <label class="col-xl-2 col-form-label ">Giới thiệu</label>
+          <div class="col-xl-10">
+            <textarea class="form-control" rows="3"
+            name="firstDes"
+            [(ngModel)]="tempCouple.description_first_person"
+            #firstDes="ngModel"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-block__item cp-ce__person">
+      <div class="v-block__sub-title mb-4">
+        <h4 class="text-uppercase mb-0">Thông tin người 2</h4>
+      </div>
+
+      <div class="v-block__item-ctn cp-ce__person-ctn">
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Họ và tên<span class="v-required">*</span></label>
+          <div class="col-xl-6">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': secondPerson.dirty && secondPerson.errors }"
+              class="form-control"  placeholder="Vui lòng nhập họ và tên của người 2"
+              name="secondPerson"
+              [(ngModel)]="tempCouple.name_second_person"
+              #secondPerson="ngModel"
+              [pattern]="rules.whitespace"
+              required>
+
+            <div class="invalid-feedback"
+              *ngIf="secondPerson.dirty && secondPerson.errors?.required">Vui lòng nhập tên</div>
+
+            <div class="invalid-feedback"
+              *ngIf="secondPerson.dirty && secondPerson.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Link fb</label>
+          <div class="col-xl-8">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': secondPerFb.dirty && secondPerFb.errors }"
+              class="form-control" placeholder="Vui lòng nhập link fb"
+              name="secondPerFb"
+              [(ngModel)]="tempCouple.fb_second_person"
+              #secondPerFb="ngModel"
+              [pattern]="rules.whitespace">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Link twitter</label>
+          <div class="col-xl-8">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': secondPerTwitter.dirty && secondPerTwitter.errors }"
+              class="form-control"  placeholder="Vui lòng nhập link twitter"
+              name="secondPerTwitter"
+              [(ngModel)]="tempCouple.twitter_second_person"
+              #secondPerTwitter="ngModel"
+              [pattern]="rules.whitespace">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-xl-2 col-form-label ">Link instagram</label>
+          <div class="col-xl-8">
+            <input type="text"
+              [ngClass]="{ 'is-invalid': secondPerInsta.dirty && secondPerInsta.errors }"
+              class="form-control"  placeholder="Vui lòng nhập link instagram"
+              name="secondPerInsta"
+              [(ngModel)]="tempCouple.instagram_second_person"
+              #secondPerInsta="ngModel"
+              [pattern]="rules.whitespace">
+          </div>
+        </div>
+
+        <div class="form-group row mb-0">
+          <label class="col-xl-2 col-form-label ">Giới thiệu</label>
+          <div class="col-xl-10">
+            <textarea class="form-control" rows="3"
+            name="secondDes"
+            [(ngModel)]="tempCouple.description_second_person"
+            #secondDes="ngModel"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="v-btn-group mt-5">
+      <button type="button"
+        class="btn v-btn--gray">
+        Hủy
+      </button>
+
+      <button type="submit"
+        [hidden]="!tempCouple.id"
+        [disabled]="isSumitting || !coupleForm.form.valid"
+        class="btn v-btn mr-0"
+        (click)="updateCoupleInfo()">
+        Sửa
+      </button>
+
+      <button type="submit"
+        [hidden]="tempCouple.id"
+        [disabled]="isSumitting || !coupleForm.form.valid"
+        class="btn v-btn"
+        (click)="createCoupleInfo()">
+        Tạo
+      </button>
+    </div>
+  </form>
+</div>

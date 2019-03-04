@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="v-mt--responsive">
+  <app-v-archive-box></app-v-archive-box>
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>
+
+<div class="set-color hidden">
+  <div class="d-flex">
+      <button type="button" class="btn btn-primary" (click)="setColor('blue')">Blue</button>
+      <button type="button" class="btn btn-success" (click)="setColor('green')">Green</button>
+      <button type="button" class="btn btn-danger" (click)="setColor('red')">Red</button>
+      <button type="button" class="btn v-btn--pink" (click)="setColor('pink')">Pink</button>
+      <button type="button" class="btn v-btn--default" (click)="setColor('default')">Default</button>
+  </div>
+</div>

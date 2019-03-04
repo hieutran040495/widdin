@@ -1,0 +1,15 @@
+<div class="v-timepicker" [id]="id" (click)="openTimePicker()">
+  <input type="text"
+    class="form-control w-100 v-timepicker__input"
+    [(ngModel)]="timeInput"
+    name="timeInput"
+    #tmInput="ngModel">
+
+  <div class="v-timepicker__table hidden">
+    <timepicker [(ngModel)]="timeOrigin"
+      (ngModelChange)="changePicker($event)"
+      name="timeTable"
+      #tmTable="ngModel">
+    </timepicker>
+  </div>
+</div>

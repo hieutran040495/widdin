@@ -1,0 +1,132 @@
+<!-- <div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">Châm ngôn</h3>
+</div> -->
+
+<!-- <div class="v-content">
+  <div class="v-features">
+    <div class="v-features__right">
+      <button type="button"
+        (click)="openCEModal()"
+        class="btn v-btn">Tạo
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="table-responsive mt-4">
+      <table class="table v-table" *ngIf="!isLoading && tempMaxims.length > 0">
+        <thead>
+          <tr>
+            <th><span class="v-table__col v-table__col-1">#</span></th>
+            <th><span class="v-table__col v-table__col-2">Nội dung</span></th>
+            <th><span class="v-table__col v-table__col-3"></span></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let maxim of tempMaxims">
+            <td>
+              <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ maxim.id }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="maxim.content">{{ maxim.content }}</span>
+            </td>
+            <td>
+              <span class="v-table__col v-table__col-3">
+                <button title="Sửa"
+                  class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                  (click)="openCEModal(maxim)">
+                  <i class="fa fa-pencil"></i>
+                </button>
+
+                <button title="Xoắ"
+                  class="btn v-btn-outline btn-sm border-0 text-dark"
+                  (click)="openDeleteModal(maxim)">
+                  <i class="fa fa-trash-o"></i>
+                </button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="!isLoading && !tempMaxims.length" class="text-center">
+        Không có dữ liệu
+      </div>
+
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+      <div class="v-block__fetures-right">
+        <button type="button"
+          (click)="openCEModal()"
+          [disabled]="isLoading"
+          class="btn v-btn">Tạo
+        </button>
+      </div>
+    </div>
+
+    <div class="v-block__item-ctn">
+      <div class="table-responsive mt-4">
+        <table class="table v-table" *ngIf="!isLoading && tempMaxims.length > 0">
+          <thead>
+            <tr>
+              <th><span class="v-table__col v-table__col-1">#</span></th>
+              <th><span class="v-table__col v-table__col-2">Nội dung</span></th>
+              <th><span class="v-table__col v-table__col-3"></span></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let maxim of tempMaxims">
+              <td>
+                <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ maxim.id }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="maxim.content">{{ maxim.content }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-3">
+                  <button title="Sửa"
+                    class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                    (click)="openCEModal(maxim)">
+                    <i class="fa fa-pencil"></i>
+                  </button>
+
+                  <button title="Xoắ"
+                    class="btn v-btn-outline btn-sm border-0 text-dark"
+                    (click)="openDeleteModal(maxim)">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div *ngIf="!isLoading && !tempMaxims.length" class="text-center">
+          Không có dữ liệu
+        </div>
+
+        <div class="v-loader" *ngIf="isLoading">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

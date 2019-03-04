@@ -1,0 +1,54 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">{{ curMode.isNew ? 'Tạo' : 'Sửa' }} châm ngôn</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="temp-form" autocomplete="off" novalidate name="maximForm" #maximForm="ngForm">
+    <div class="form-group">
+      <label for="content" class="col-form-label">Nội dung<span class="v-required">*</span></label>
+      <div>
+        <textarea class="form-control"
+          [ngClass]="{ 'is-invalid': maximContent.dirty && maximContent.errors }"
+          id="content" rows="3"
+          placeholder="Nội dung châm ngôn"
+          [(ngModel)]="maxim.content"
+          name="content"
+          #maximContent="ngModel"
+          [pattern]="rules.whitespace"
+          required></textarea>
+
+          <div class="invalid-feedback"
+            *ngIf="maximContent.dirty && maximContent.errors?.required">Vui lòng nhập nội dung của châm ngôn</div>
+
+          <div class="invalid-feedback"
+            *ngIf="maximContent.dirty && maximContent.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="v-btn-group mt-5">
+      <button type="button"
+        class="btn v-btn--gray mr-2"
+        (click)="closeModal()">
+        Hủy
+      </button>
+
+      <button type="submit"
+        class="btn v-btn mr-0"
+        (click)="editMaxim()"
+        [hidden]="curMode.isNew"
+        [disabled]="isSubmitting || !maximForm.form.valid">
+        Sửa
+      </button>
+
+      <button type="submit"
+        class="btn v-btn"
+        (click)="createMaxim()"
+        [hidden]="curMode.isEdit"
+        [disabled]="isSubmitting || !maximForm.form.valid">
+        Tạo
+      </button>
+    </div>
+  </form>
+</div>

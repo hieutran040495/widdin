@@ -1,0 +1,61 @@
+%link {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.v-post {
+  background-color: transparent;
+  border: 0;
+
+  &__title {
+    margin-bottom: 5px;
+
+    a {
+      @extend %link;
+
+      font-size: 14px;
+    }
+  }
+
+  &__sub-title {
+    a {
+      @extend %link;
+
+      color: #7e7e7e;
+      font-size: 12px;
+
+      &::after {
+        content: ', ';
+      }
+
+      &:last-of-type {
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  &__img {
+    overflow: hidden;
+    position: relative;
+
+    &:hover {
+      .v-card__hover {
+        opacity: 1;
+      }
+
+      .v-card__icon-hover {
+        right: 15px;
+      }
+    }
+  }
+
+  &__body {
+    padding: 15px 0;
+  }
+
+  .v-card__icon-hover {
+    @include icon-hover(15px, -50px);
+  }
+}

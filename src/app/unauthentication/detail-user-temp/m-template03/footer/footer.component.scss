@@ -1,0 +1,20 @@
+.mt-footer {
+  .container {
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
+
+  .mt-section__top {
+    img {
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .mt-section__top {
+      img {
+        height: 140px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<div class="container v-container home v-mt--responsive">
+  <app-banner></app-banner>
+
+  <div class="row">
+    <div class="col-xl-4 col-sm-6 mb-3" *ngFor="let post of posts">
+      <div class="card v-post">
+        <div class="v-post__img">
+          <a href="">
+            <app-v-image imgWidth="100%"
+              imgHeight="300"
+              [imgUrl]="post.img_url || '/assets/images/default-black.png'">
+            </app-v-image>
+          </a>
+
+          <div class="v-card__icon-hover">
+            <div class="d-flex flex-column">
+              <button type="button" title="Thích"
+                class="btn v-btn-outline">
+                <i class="fa fa-heart-o"></i>
+              </button>
+
+              <a title="Xem"
+                href=""
+                class="btn v-btn-outline v-link--icon">
+                <i class="fa fa-search"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body v-post__body">
+          <h5 class="card-title v-post__title v-text-ellipsis">
+            <a href="">{{ post.title }}</a>
+          </h5>
+          <p class="mb-0 v-post__sub-title">
+            <a href="" *ngFor="let c of post.categories">{{ c.name }}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

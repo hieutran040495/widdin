@@ -1,0 +1,57 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left text-center">Tạo cửa hàng</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="card">
+    <img class="card-img-top d-none d-md-block"
+      src="https://solopine.com/rosemary/wp-content/uploads/2018/07/product2-300x300.jpg"
+      alt="Card image cap">
+
+    <div class="card-body">
+      <p class="card-text">
+        Cửa hàng là không gian tuyệt vời để  thiết lập, hoàn thành công việc và chỉ liên lạc với những người bạn muốn.
+        Hãy chia sẻ ảnh và video, thông tin và nhiều hoạt động khác.
+      </p>
+    </div>
+  </div>
+
+  <form class="mt-4">
+    <div class="form-group">
+      <label>Tên cửa hàng</label>
+      <input type="text"
+        class="form-control"
+        placeholder="Nhập tên cửa hàng">
+    </div>
+
+    <div class="form-group">
+      <label>Hạng mục</label>
+      <select class="form-control">
+        <option>Hạng mục</option>
+        <option>Studio</option>
+        <option>Dịch vụ cưới hỏi</option>
+        <option>Chụp ảnh</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Mô tả</label>
+      <textarea class="form-control" rows="3"></textarea>
+    </div>
+  </form>
+
+  <p class="card-text mt-4">
+    Khi bạn tạo Cửa hàng trên Widdin, <a href="" class="">Chính sách về Cửa hàng</a> sẽ được áp dụng.
+  </p>
+</div>
+
+<div class="modal-footer v-modal__footer mt-3">
+  <button type="button" class="btn v-btn--gray w-100"
+    (click)="closeModal()">Hủy</button>
+
+  <button type="button" class="btn v-btn w-100"
+    [disabled]="isSubmitting"
+    (click)="createStore()">Tạo</button>
+</div>

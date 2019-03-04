@@ -1,0 +1,51 @@
+.mt-infor {
+  &__wrp {
+    padding-bottom: 6%;
+    padding-top: 6%;
+  }
+
+  &__left,
+  &__right {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+  }
+
+  &__center {
+    height: 100%;
+    width: 300px;
+  }
+
+  h2 {
+    font-family: 'dancing';
+    font-size: 50px;
+  }
+
+  @media (max-width: 991px) {
+    &__left,
+    &__right {
+      height: 190px;
+      width: 190px;
+    }
+
+    h2 {
+      font-size: 35px;
+      margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__wrp {
+      flex-direction: column;
+    }
+
+    .mt-container {
+      padding-top: 15%;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+  }
+}

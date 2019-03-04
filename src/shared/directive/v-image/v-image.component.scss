@@ -1,0 +1,32 @@
+.v-img {
+  &__wrap {
+    position: relative;
+
+    img {
+      display: none;
+    }
+  }
+
+  &__item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  // @media (max-width: 575px) {
+  //   &__wrap {
+  //     height: 300px !important;
+  //   }
+  // }
+
+  // @media (max-width: 480px) {
+  //   &__wrap {
+  //     height: 250px !important;
+  //   }
+  // }
+}

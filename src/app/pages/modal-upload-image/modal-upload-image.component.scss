@@ -1,0 +1,71 @@
+.v-modal-upload {
+  &__features {
+    .btn {
+      padding: 3px 15px;
+    }
+  }
+
+  &__left {
+    width: 220px;
+
+    label {
+      font-size: 15px;
+    }
+
+    input,
+    textarea {
+      font-size: 14px;
+      padding: 5px;
+    }
+  }
+
+  &__right {
+    flex: 1;
+
+    .row {
+      padding: 0 10px;
+    }
+  }
+
+  &__img-name {
+    input {
+      border-radius: 0;
+    }
+  }
+
+  &--img-only {
+    .v-modal-upload__left {
+      display: none;
+    }
+  }
+
+  .v-btn__upload {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .v-card__img {
+    background: rgba(0, 0, 0, .65);
+    height: 245px;
+  }
+
+  @media (max-width: 991px) {
+    &__ctn {
+      flex-direction: column;
+    }
+
+    &__left {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    &__img-wrp {
+      height: 145px;
+    }
+  }
+}
+
+.modal-body {
+  background-color: #eff0f0;
+}

@@ -1,0 +1,4 @@
+@mixin bg-dropdown ($bg-col, $txt-col) {
+  background-color: $bg-col;
+  color: $txt-col;
+}

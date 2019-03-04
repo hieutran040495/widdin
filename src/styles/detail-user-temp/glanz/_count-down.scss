@@ -1,0 +1,42 @@
+
+#clock {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .countdown {
+    &-section {
+      margin: 0 30px;
+      width: 100px;
+    }
+
+    &-amount {
+      display: block;
+      font-size: 55px;
+    }
+
+    &-period {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    .countdown {
+      &-amount {
+        font-size: 40px;
+      }
+
+      &-period {
+        font-size: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .countdown {
+      &-amount {
+        font-size: 30px;
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">Đăng nhập</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="temp-form" autocomplete="off" novalidate name="loginForm" #loginForm="ngForm">
+    <div class="form-group row">
+      <label for="email" class="col-sm-4 col-form-label">Email<span class="v-required">*</span></label>
+      <div class="col-sm-8">
+        <input type="text"
+          [ngClass]="{ 'is-invalid': userEmail.dirty && userEmail.errors }"
+          class="form-control"
+          id="email"
+          placeholder="Vui lòng nhập địa chỉ email"
+          [(ngModel)]="loginData.email"
+          name="email"
+          #userEmail="ngModel"
+          [pattern]="rules.whitespace"
+          required>
+
+          <div class="invalid-feedback"
+            *ngIf="userEmail.dirty && userEmail.errors?.required">Vui lòng nhập địa chỉ email</div>
+
+          <div class="invalid-feedback"
+            *ngIf="userEmail.dirty && userEmail.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="password" class="col-sm-4 col-form-label">Mật khẩu<span class="v-required">*</span></label>
+      <div class="col-sm-8">
+        <input type="password"
+          [ngClass]="{ 'is-invalid': userPassword.dirty && userPassword.errors }"
+          class="form-control"
+          id="password"
+          placeholder="Vui lòng nhập mật khẩu"
+          [(ngModel)]="loginData.password"
+          name="password"
+          #userPassword="ngModel"
+          [pattern]="rules.whitespace"
+          required>
+
+          <div class="invalid-feedback"
+            *ngIf="userPassword.dirty && userPassword.errors?.required">Vui lòng nhập mật khẩu</div>
+
+          <div class="invalid-feedback"
+            *ngIf="userPassword.dirty && userPassword.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="v-btn-group mt-5">
+      <button type="button"
+        class="btn v-btn--gray mr-2"
+        (click)="closeModal()">
+        Hủy
+      </button>
+
+      <button type="submit"
+        class="btn v-btn"
+        (click)="login()"
+        [disabled]="isLoading || !loginForm.form.valid">
+        Đăng nhập
+      </button>
+    </div>
+  </form>
+</div>

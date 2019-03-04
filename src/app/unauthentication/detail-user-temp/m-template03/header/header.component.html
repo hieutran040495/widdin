@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg mt-navbar mt-navbar--trans">
+  <div class="container">
+    <div class="d-flex mt-logo">
+      <h2>
+        <a class="navbar-brand mr-3"
+          href="javascript:void(0)"
+          [scrollTo]="'#slider'"
+          (click)="chooseItem()">Widdin</a>
+      </h2>
+
+      <div class="">
+        <h5 class="mb-0">{{ couple.first_name_per_1 }} & {{ couple.first_name_per_2 }}</h5>
+        <span class="mt-logo__time">{{ mainEvent.start_date_string }}</span>
+      </div>
+    </div>
+
+    <button class="navbar-toggler" type="button"
+      data-toggle="collapse" data-target="#navbarColor01"
+      aria-controls="navbarColor01" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <i class="fa fa-align-justify"></i>
+      <!-- <span class="navbar-toggler-icon"></span> -->
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav w-100 justify-content-end">
+        <li class="nav-item"
+          [ngClass]="{'active': selectedItem === i}"
+          *ngFor="let item of menu; let i = index"
+          (click)="chooseItem(i)">
+          <a class="nav-link" href="javascript:void(0)" [scrollTo]="item.id">{{ item.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

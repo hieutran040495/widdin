@@ -1,0 +1,103 @@
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+      <div class="v-block__fetures-right">
+        <button type="button"
+          (click)="openCEModal()"
+          [disabled]="isLoading"
+          class="btn v-btn">Tạo
+        </button>
+      </div>
+    </div>
+
+    <div class="v-block__item-ctn mt-4">
+      <div class="table-responsive">
+        <table class="table v-table" *ngIf="!isLoading && tempEvents.length > 0">
+          <thead>
+            <tr>
+              <th><span class="v-table__col v-table__col-1">#</span></th>
+              <th><span class="v-table__col v-table__col-2">Tên sự kiện</span></th>
+              <th><span class="v-table__col v-table__col-3">Ngày tháng</span></th>
+              <th><span class="v-table__col v-table__col-4">Giờ bắt đầu</span></th>
+              <th><span class="v-table__col v-table__col-5">Giờ kết thúc</span></th>
+              <!-- <th><span class="v-table__col v-table__col-6">Địa điểm</span></th>
+              <th><span class="v-table__col v-table__col-7">Địa chỉ</span></th>
+              <th><span class="v-table__col v-table__col-8">Mô tả</span></th> -->
+              <th><span class="v-table__col v-table__col-9"></span></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let event of tempEvents" [id]="'tb-tr-'+event.id"
+              [ngClass]="{'v-table--active': event.is_main_boolean}">
+              <td>
+                <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ event.id }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="event.title">{{ event.title }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-3 v-text-ellipsis" [title]="event.start_date">{{ event.start_date_string }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-4 v-text-ellipsis" [title]="event.start_hours">{{ event.start_hours }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-5 v-text-ellipsis" [title]="event.end_hours">{{ event.end_hours }}</span>
+              </td>
+              <!-- <td>
+                <span class="v-table__col v-table__col-6 v-text-ellipsis" [title]="event.address">{{ event.address }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-7 v-text-ellipsis" [title]="event.address_name">{{ event.address_name }}</span>
+              </td>
+              <td>
+                <span class="v-table__col v-table__col-8 v-text-ellipsis" [title]="event.description">{{ event.description }}</span>
+              </td> -->
+              <td>
+                <span class="v-table__col v-table__col-9 d-flex align-items-center">
+                  <button title="Sửa"
+                    class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                    (click)="openCEModal(event)">
+                    <i class="fa fa-pencil"></i>
+                  </button>
+
+                  <button title="Xoắ"
+                    class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                    (click)="openDeleteModal(event)">
+                    <i class="fa fa-trash-o"></i>
+                  </button>
+
+                  <div title="Chọn sự kiện chính" class="v-radio">
+                    <input class="v-radio__input"
+                      type="radio"
+                      name="activeEvent"
+                      [checked]="event.is_main"
+                      (change)="activateEvent(event)"
+                      [disabled]="isActivating">
+
+                    <span class="v-radio__circle"></span>
+                    <span class="v-radio__label"></span>
+                  </div>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div *ngIf="!isLoading && !tempEvents.length" class="text-center">
+          Không có dữ liệu
+        </div>
+
+        <div class="v-loader" *ngIf="isLoading">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

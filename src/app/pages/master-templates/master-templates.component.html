@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="v-block pt-4 pb-4">
+    <div class="v-block__item">
+      <form action="" class="v-block__features">
+        <div class="v-block__features-left d-flex justify-content-between">
+          <div class="form-group">
+            <select class="form-control">
+              <option>Loại</option>
+              <option>Wedding</option>
+              <option>Vintage</option>
+              <option>Romantic</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <select class="form-control">
+              <option>Giá</option>
+              <option>50.000đ - 100.000đ</option>
+              <option>100.000đ - 150.000đ</option>
+              <option>150.000đ - 200.000đ</option>
+              <option>250.000đ - 300.000đ</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="v-block__features-right">
+          <div class="v-input-group border">
+            <div class="input-group">
+              <input type="text" class="form-control input-lg" placeholder="Tìm kiếm" />
+              <span class="input-group-btn">
+                <button class="btn btn-lg" type="button">
+                  <i class="fa fa-search"></i>
+                </button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="v-block__item-ctn mt-4">
+        <div *ngIf="!isLoading && templates.length">
+          <p class="template__result mb-0 pb-4 v-font--lg">
+            Kết quả: {{ total }} trong {{ total }}
+          </p>
+
+          <div class="row">
+            <div class="col-lg-4 col-md-6 v-product mb-3" *ngFor="let template of templates">
+              <div class="card v-card">
+                <div class="v-product__img">
+                  <app-v-image imgWidth="100%"
+                    imgHeight="350"
+                    [imgUrl]="template.image_cover || '/assets/images/default-black.png'">
+                  </app-v-image>
+
+                  <div class="v-card__icon-hover">
+                    <div class="d-flex flex-column">
+                      <button type="button" title="Thích"
+                        class="btn v-btn-outline">
+                        <i class="fa fa-heart-o"></i>
+                      </button>
+
+                      <button type="button"
+                        class="btn v-btn-outline" title="Xem"
+                        (click)="showPreview(template)">
+                        <i class="fa fa-search"></i>
+                      </button>
+
+                      <button type="button"
+                        class="btn v-btn-outline" title="Tạo"
+                        [disabled]="isSubmiting"
+                        (click)="chooseTemplate(template.id)">
+                        <i class="fa fa-plus"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body">
+                  <h6 class="card-subtitle mb-2">Card subtitle</h6>
+                  <h5 class="card-title">{{ template.name }}</h5>
+                  <div class="v-product__separator"></div>
+                  <p class="v-product__price">${{ template.price }}</p>
+                </div>
+
+                <div class="v-product__sale">
+                  <span>Sale</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <app-v-preview-gallery *ngIf="isOpenPreview"
+          [galleryImages]="selectedTemplate.images"
+          [isOpenPreview]="isOpenPreview"
+          (closedPreview)="closedPreview($event)">
+        </app-v-preview-gallery>
+
+        <div class="v-loader" *ngIf="isLoading">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
+
+        <div *ngIf="!isLoading && !templates.length" class="text-center">
+          Không có dữ liệu
+        </div>
+
+        <div class="v-pagination mt-4  " *ngIf="paginate.hasPaginate()" [ngClass]="{ 'hidden': isLoading }">
+          <pagination
+            [totalItems]="paginate.total"
+            [(ngModel)]="paginate.currentPage"
+            pageBtnClass="btn"
+            [itemsPerPage]="paginate.perPage"
+            [maxSize]="5"
+            [disabled]="isPaginate"
+            (pageChanged)="pageChanged($event)"
+            previousText="&lsaquo;"
+            nextText="&rsaquo;"
+            firstText="&laquo;"
+            lastText="&raquo;">
+          </pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

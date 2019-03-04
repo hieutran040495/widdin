@@ -1,0 +1,40 @@
+<!--Widget at PC-->
+<div class="v-widget d-none d-lg-block">
+  <div class="v-widget__heading">
+    <h6 class="text-uppercase mb-0">Danh mục</h6>
+  </div>
+
+  <div class="v-widget__category list-group list-group-flush v-list-group">
+    <a *ngFor="let aside of asides"
+      [id]="aside.id"
+      href="javascript:void(0)"
+      (click)="selectedCategory(aside.id)"
+      class="list-group-item list-group-item-action pl-0 pr-0 border-0"
+      [ngClass]="{'disabled': !hasTemplate}">
+
+      <i class="fa fa-angle-right mr-2"></i>
+      {{ aside.name }}
+    </a>
+  </div>
+</div>
+
+<!--Widget at mobile-->
+<div class="v-widget d-md-block d-lg-none mb-5">
+  <form>
+    <div class="form-group row">
+      <label for="colFormLabelSm"
+        class="col-sm-3 text-uppercase font-weight-bold col-form-label col-form-label-sm align-self-center">
+        Danh mục:
+      </label>
+
+      <div class="col-sm-9">
+        <select class="custom-select"
+        (change)="selectedCategory($event)">
+          <option *ngFor="let aside of asides"
+            [value]="aside.id">{{ aside.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>

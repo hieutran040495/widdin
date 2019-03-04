@@ -1,0 +1,21 @@
+@import '../../../styles/utils/mixins/table';
+
+$values: (
+  1: 35px,
+  2: 290px,
+  3: 90px,
+);
+
+@include table-col($values);
+
+.table {
+  td {
+    vertical-align: middle;
+  }
+
+  img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
+}

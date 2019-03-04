@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="u-sv pt-4 pb-4">
+    <div class="u-sv__left-bar">
+      <app-v-widget-category [asides]="asides"></app-v-widget-category>
+    </div>
+
+    <div class="u-sv__right-bar">
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+
+      <div *ngIf="!isLoading && !hasTemplate" class="none-data text-center">
+        <p class="v-font--lg">Không có template nào bạn có muốn tạo mới không?</p>
+
+        <a href="javascipt:void(0)" class="btn v-btn" routerLink="/templates">Tạo</a>
+      </div>
+
+      <div *ngIf="hasTemplate">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

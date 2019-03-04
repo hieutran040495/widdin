@@ -1,0 +1,63 @@
+<div class="mt-section mt-event bg-white" id="event">
+  <div class="container mt-container text-center">
+    <p class="mt-section__top">
+      <img src="assets/images/animations/flower2.gif" alt="">
+    </p>
+
+    <h2 class="mt-section__title">Wedding Details</h2>
+
+    <!--Carousel Events-->
+    <div class="mt-event__carousel" *ngIf="events.length > 1">
+      <div class="d-flex justify-content-end">
+        <a class="carousel-control-prev mr-2" href="#carouselEvents" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselEvents" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <div id="carouselEvents" class="carousel slide text-center mt-5 pb-4" data-ride="carousel" data-interval="false" >
+        <ol class="carousel-indicators">
+          <li data-target="#carouselEvents"
+            [ngClass]="{'active': iDot === 0}"
+            [attr.data-slide-to]="iDot"
+            *ngFor="let e of newEvents; let iDot = index">
+          </li>
+        </ol>
+
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let event of newEvents; let i = index" [ngClass]="{'active': i===0}">
+            <div class="row justify-content-center">
+              <div class="col-md-4" *ngFor="let child of event; let j = index">
+                <div class="mt-event__img" [ngStyle]="{'background-image': 'url(' +eventImgs[j] +')'}"></div>
+
+                <h3 class="mt-section__subtitle">{{ child.title }}</h3>
+
+                <p>{{ child.during_time }}<br>
+                  <strong>{{ child.address }}</strong><br>
+                  {{ child.address_name }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Single Event-->
+    <div class="mt-event__single" *ngIf="events.length === 1">
+      <div class="mt-event__single-left ">
+        <div class="mt-event__single-img" [ngStyle]="{'background-image': 'url(' +eventImgs[0] +')'}"></div>
+      </div>
+
+      <div class="mt-event__single-right">
+        <h3 class="mt-section__subtitle mb-4">{{ mainEvent.start_date_string_short }}</h3>
+        <h5>{{ mainEvent.during_time }}</h5>
+        <h4>{{ mainEvent.address }}</h4>
+        <p>{{ mainEvent.address_name }}</p>
+      </div>
+    </div>
+  </div>
+</div>

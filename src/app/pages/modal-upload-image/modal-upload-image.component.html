@@ -1,0 +1,84 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">{{ isCreateAlbum ? 'Tạo album' : 'Thêm ảnh' }}</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body v-modal-upload">
+  <form action="">
+    <div class="v-modal-upload__features text-right mb-4">
+      <div class="v-btn__upload mr-2">
+        <button class="btn v-btn-outline w-100">Thêm ảnh</button>
+        <input (change)="getPhotos($event)"
+          type="file" name="uploadPhotos"
+          [attr.accept]="accept_file" multiple>
+      </div>
+
+      <button type="button"
+        class="btn v-btn"
+        [hidden]="isCreateAlbum"
+        (click)="upload()">
+        Đăng
+      </button>
+
+      <button type="button"
+        class="btn v-btn"
+        [hidden]="!isCreateAlbum"
+        (click)="upload()">
+        Tạo
+      </button>
+    </div>
+
+    <div class="v-modal-upload__ctn d-flex" [ngClass]="{'v-modal-upload--img-only': !isCreateAlbum}">
+      <div class="v-modal-upload__left mr-3">
+        <div class="form-group">
+          <label for="name" class="font-weight-bold">Tên album</label>
+          <input type="text"
+            class="form-control"
+            id="name"
+            placeholder="Vui lòng nhập tên của album"
+            name="title"
+            [(ngModel)]="templateAlbum.title"
+            #TitleAlbum="ngModel">
+        </div>
+
+        <div class="form-group">
+          <label for="memo" class="font-weight-bold">Mô tả</label>
+          <textarea class="form-control"
+            id="memo"
+            placeholder="Vui lòng nhập mô tả của album"
+            rows="3"
+            name="memo"
+            [(ngModel)]="templateAlbum.description"
+            #DesAlbum="ngModel"></textarea>
+        </div>
+      </div>
+
+      <div class="v-modal-upload__right bg-white border p-2">
+        <div class="row v-card__wrp">
+          <div class="col-xl-3 col-md-4 col-6 mb-3 p-0"
+            *ngFor="let item of globalFiles; let i = index"
+            [id]="'img-pre-'+i">
+
+            <div class="card v-card border-0">
+              <div class="v-card__img" [id]="'img-pre-wrp-'+i">
+                <div class="v-btn__img-del hidden" [id]="'img-del-'+i">
+                  <a href="javascript:void(0)" class="text-white" (click)="removeImgPreview(i)">
+                    <i class="fa fa-times"></i>
+                  </a>
+                </div>
+
+                <div class="v-loader-img" [id]="'img-loader-'+i"></div>
+              </div>
+
+              <!-- <div class="card-body p-0">
+                <input type="text" class="form-control" placeholder="Tên của ảnh">
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

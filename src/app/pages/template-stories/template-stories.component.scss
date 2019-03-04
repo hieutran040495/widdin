@@ -1,0 +1,23 @@
+@import '../../../styles/utils/mixins/table';
+
+.pt-search {
+  width: 25%;
+
+  @media (max-width: 767px) {
+    width: 40%;
+  }
+
+  @media (max-width: 575px) {
+    width: 80%;
+  }
+}
+
+$values: (
+  1: 35px,
+  2: 175px,
+  3: 150px,
+  4: 245px,
+  5: 100px,
+);
+
+@include table-col($values);

@@ -1,0 +1,14 @@
+// Set font-size
+@mixin font-size ($size) {
+  @if $size == xs {
+    font-size: $font-xs;
+  } @else if $size == sm {
+    font-size: $font-sm;
+  } @else if $size == md {
+    font-size: $font-md;
+  } @else if $size == lg {
+    font-size: $font-lg;
+  } @else {
+    font-size: $font-xl;
+  }
+}

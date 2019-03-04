@@ -1,0 +1,65 @@
+.v-dropdown {
+  &--pink {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-pink, $txt-white);
+      }
+    }
+  }
+
+  &--blue {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-blue, $txt-white);
+      }
+    }
+  }
+
+  &--green {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-green, $txt-white);
+      }
+    }
+  }
+
+  &--red {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-red, $txt-white);
+      }
+    }
+  }
+
+  &--outline-pink {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-white, $txt-pink);
+      }
+    }
+  }
+
+  &--outline-blue {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-white, $txt-blue);
+      }
+    }
+  }
+
+  &--outline-green {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-white, $txt-green);
+      }
+    }
+  }
+
+  &--outline-red {
+    .dropdown-item {
+      &:hover {
+        @include bg-dropdown($bg-white, $txt-red);
+      }
+    }
+  }
+}

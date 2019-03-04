@@ -1,0 +1,8 @@
+// Display element with position absolute
+@mixin position-absolute($top, $right, $bottom, $left) {
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+  right: $right;
+  top: $top;
+}

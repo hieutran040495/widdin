@@ -1,0 +1,70 @@
+<div class="mt-gallery">
+  <div class="mt-gallery__filter mb-4">
+    <a href="javascript:void(0)"
+      (click)="viewAlbum()">Tất cả</a>
+
+    <a href="javascript:void(0)"
+      *ngFor="let item of albums"
+      (click)="viewAlbum(item.id)">{{ item.title }}</a>
+  </div>
+
+  <div class="mt-gallery__grid row">
+    <div class="col-md-4 col-sm-6 mb-3" *ngFor="let itemImg of galleryImages">
+      <div class="mt-gallery__item">
+        <a href="javascript:void(0)" (click)="showImage(itemImg)">
+          <img class="w-100 h-100"
+            [src]="itemImg.img_url_sm"
+            (error)="onError(itemImg.img_url_sm)"
+            (load)="onLoad()">
+
+          <div class="mt-gallery__bg"
+            [ngStyle]="{'background-image': 'url(' + itemImg.img_url_sm +')' }"
+            *ngIf="!loadingImg"></div>
+
+          <div class="v-loader-img" *ngIf="loadingImg"></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="v-gallery__preview">
+      <div class="v-gallery__preview-wrp">
+        <div class="v-gallery__preview-top text-right">
+          <a href="javascript:void(0)"
+            (click)="fullSize()"
+            [hidden]="isFullSize"
+            class="v-link v-link--underline fa fa-arrows-alt mr-3"></a>
+
+          <a href="javascript:void(0)"
+            (click)="closeFullSize()"
+            [hidden]="!isFullSize"
+            class="v-link v-link--underline fa fa-times"></a>
+
+          <a href="javascript:void(0)"
+            (click)="closePreview()"
+            [hidden]="isFullSize"
+            class="v-link v-link--underline fa fa-times"></a>
+        </div>
+
+        <div class="v-gallery__preview-img">
+          <div id="galleryControls" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let item of galleryImages"
+                [ngClass]="{'active': selectedImg.id === item.id}">
+                <div class="d-block v-gallery__bg-img" [ngStyle]="{'background-image': 'url(' +item.img_url_lg +')'}"></div>
+              </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#galleryControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#galleryControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

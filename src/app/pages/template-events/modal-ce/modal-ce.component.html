@@ -1,0 +1,149 @@
+<div class="modal-header">
+  <h5 class="modal-title pull-left">{{ curMode.isNew ? 'Tạo' : 'Sửa' }} sự kiện</h5>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form class="temp-form" autocomplete="off" novalidate name="tempEventForm" #tempEventForm="ngForm">
+    <div class="form-group row">
+      <label for="name" class="col-sm-3 col-form-label">Tên sự kiện<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <input type="text"
+          [ngClass]="{ 'is-invalid': tempEventName.dirty && tempEventName.errors }"
+          class="form-control"
+          id="name"
+          placeholder="Vui lòng nhập tên của sự kiện"
+          [(ngModel)]="tempEvent.title"
+          name="tempEventName"
+          #tempEventName="ngModel"
+          [pattern]="rules.whitespace"
+          required>
+
+          <div class="invalid-feedback"
+            *ngIf="tempEventName.dirty && tempEventName.errors?.required">Vui lòng nhập tên của sự kiện</div>
+
+          <div class="invalid-feedback"
+            *ngIf="tempEventName.dirty && tempEventName.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="date" class="col-sm-3 col-form-label">Ngày<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <input type="text"
+          placeholder="Vui lòng chọn ngày"
+          class="form-control v-picker"
+          bsDatepicker
+          #dp="bsDatepicker"
+          name="bsDatepicker"
+          [(ngModel)]="tempEvent.start_date_picker"
+          [bsConfig]="bsConfig"
+          readonly>
+      </div>
+    </div>
+
+    <div class="form-group row form-timepicker">
+      <label for="startTime" class="col-sm-3 col-form-label">Giờ<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="form-timepicker__item">
+            <app-v-timepicker
+              id="startTime"
+              [timeOrigin]="tempEvent.start_hours"
+              (changeValue)="changeStartHours($event)">
+            </app-v-timepicker>
+          </div>
+          <span class="ml-1 mr-1">~</span>
+          <div class="form-timepicker__item">
+            <app-v-timepicker
+              id="endTime"
+              [timeOrigin]="tempEvent.end_hours"
+              (changeValue)="changeEndHours($event)">
+            </app-v-timepicker>
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="place" class="col-sm-3 col-form-label">Địa điểm<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <input type="text"
+          [ngClass]="{ 'is-invalid': tempPlace.dirty && tempPlace.errors }"
+          class="form-control"
+          id="place"
+          placeholder="Vui lòng nhập địa điểm tổ chức sự kiện"
+          [(ngModel)]="tempEvent.address"
+          name="place"
+          #tempPlace="ngModel"
+          [pattern]="rules.whitespace"
+          required>
+
+          <div class="invalid-feedback"
+            *ngIf="tempPlace.dirty && tempPlace.errors?.required">Vui lòng nhập địa điểm tổ chức sự kiện</div>
+
+          <div class="invalid-feedback"
+            *ngIf="tempPlace.dirty && tempPlace.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="address" class="col-sm-3 col-form-label">Địa chỉ<span class="v-required">*</span></label>
+      <div class="col-sm-9">
+        <input type="text"
+          [ngClass]="{ 'is-invalid': tempAddress.dirty && tempAddress.errors }"
+          class="form-control"
+          id="address"
+          placeholder="Vui lòng nhập địa chỉ tổ chức sự kiện"
+          [(ngModel)]="tempEvent.address_name"
+          name="address"
+          #tempAddress="ngModel"
+          [pattern]="rules.whitespace"
+          required>
+
+          <div class="invalid-feedback"
+            *ngIf="tempAddress.dirty && tempAddress.errors?.required">Vui lòng nhập địa chỉ tổ chức sự kiện</div>
+
+          <div class="invalid-feedback"
+            *ngIf="tempAddress.dirty && tempAddress.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="description" class="col-sm-3 col-form-label">Mô tả</label>
+      <div class="col-sm-9">
+        <textarea class="form-control"
+          id="description" rows="3"
+          placeholder="Ghi chú cho sự kiện"
+          [(ngModel)]="tempEvent.description"
+          name="description"
+          #tempDes="ngModel"></textarea>
+      </div>
+    </div>
+
+    <div class="v-btn-group mt-5">
+      <button type="button"
+        class="btn v-btn--gray mr-2"
+        (click)="closeModal()">
+        Hủy
+      </button>
+
+      <button type="submit"
+        class="btn v-btn mr-0"
+        (click)="editTempEvent()"
+        [hidden]="curMode.isNew"
+        [disabled]="isSubmitting || !tempEventForm.form.valid">
+        Sửa
+      </button>
+
+      <button type="submit"
+        class="btn v-btn"
+        (click)="createTempEvent()"
+        [hidden]="curMode.isEdit"
+        [disabled]="isSubmitting || !tempEventForm.form.valid">
+        Tạo
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,64 @@
+// $col-bg: background of button
+// $col-txt: color of text
+// $col-hover: background of button when hover
+// $col-hover-txt: color of text when hover
+
+// Button background
+@mixin btn-bg($col-bg, $col-txt, $col-hover, $col-hover-txt) {
+  background-color: $col-bg;
+  border-color: $col-bg;
+  color: $col-txt;
+
+  &:hover {
+    @include btn-hover ($col-hover, $col-hover-txt);
+  }
+}
+
+// Button background outline
+@mixin btn-outline($col-bg, $col-txt) {
+  background-color: $col-white;
+  background-image: none;
+  border-color: $col-bg;
+  color: $col-txt;
+
+  &:hover {
+    @include btn-hover($col-txt, $col-white)
+  }
+}
+
+@mixin btn-hover($col-hover, $col-hover-txt) {
+  background-color: $col-hover !important;
+  border-color: $col-hover !important;
+  color: $col-hover-txt !important;
+}
+
+// Button group
+@mixin btn-group($width) {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn {
+    margin-right: 10px;
+    min-width: $width;
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  @media (max-width: 575px) {
+    flex-direction: column-reverse;
+
+    .btn {
+      margin-bottom: 10px;
+      margin-right: 0;
+      width: 100%;
+
+      &:first-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

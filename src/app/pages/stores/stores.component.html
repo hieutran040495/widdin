@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="u-sv pt-4 pb-4">
+    <div class="u-sv__left-bar">
+      <app-stores-left-bar></app-stores-left-bar>
+    </div>
+
+    <div class="u-sv__right-bar">
+      <div class="v-block">
+        <div class="v-block__item">
+          <div class="v-block__features justify-content-end">
+            <div class="v-block__fetures-right">
+              <button type="button"
+                (click)="openCreateStoreModal()"
+                [disabled]="isLoading"
+                class="btn v-btn">Tạo
+              </button>
+            </div>
+          </div>
+
+          <div class="v-block__item-ctn mt-4">
+            <div class="table-responsive">
+              <table class="table v-table" *ngIf="!isLoading && stores.length > 0">
+                <thead>
+                  <tr>
+                    <th><span class="v-table__col v-table__col-1">#</span></th>
+                    <!-- <th><span class="v-table__col v-table__col-2">Avatar</span></th> -->
+                    <th><span class="v-table__col v-table__col-3">Tên</span></th>
+                    <th><span class="v-table__col v-table__col-4"></span></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr *ngFor="let store of stores" [id]="'tb-tr-'+store.id"
+                    [ngClass]="{'v-table--active': store.is_main_boolean}">
+                    <td>
+                      <span class="v-table__col v-table__col-1 v-text-ellipsis">{{ store.id }}</span>
+                    </td>
+                    <td>
+                      <span class="v-table__col v-table__col-2 v-text-ellipsis" [title]="store.name">
+                        <img [src]="store.img_url" alt="">
+                        <span class="ml-3">{{ store.name }}</span>
+                      </span>
+                    </td>
+                    <td>
+                      <span class="v-table__col v-table__col-3 d-flex align-items-center">
+                        <a title="Sửa"
+                          class="btn v-btn-outline btn-sm mr-1 border-0 text-dark"
+                          href="javascript:void(0)"
+                          [routerLink]="['/stores', store.id]">
+                          <i class="fa fa-pencil"></i>
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div *ngIf="!isLoading && !stores.length" class="text-center">
+                Không có dữ liệu
+              </div>
+
+              <div class="v-loader" *ngIf="isLoading">
+                <div class="rect1"></div>
+                <div class="rect2"></div>
+                <div class="rect3"></div>
+                <div class="rect4"></div>
+                <div class="rect5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

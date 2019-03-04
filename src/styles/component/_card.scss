@@ -1,0 +1,50 @@
+.v-card {
+  &__hover {
+    background-color: rgba(255, 255, 255, .9);
+    border: 20px solid rgba(0, 0, 0, .1);
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all .3s;
+
+    &-wrp {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .fa {
+      font-size: 25px;
+    }
+
+    .btn {
+      min-width: 120px;
+    }
+  }
+
+  &__icon-hover {
+    -o-transition: all 300ms ease;
+    -webkit-transition: all 300ms ease;
+    position: absolute;
+    transition: all 300ms ease;
+
+    .btn {
+      border: 0;
+      color: $txt-black !important;
+      height: 40px;
+      margin-bottom: 5px;
+      padding: 0;
+      text-align: center;
+      width: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

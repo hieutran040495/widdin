@@ -1,0 +1,73 @@
+<div class="mt-section mt-rsvp mt-rsvp-1" id="rsvp" [style.backgroundImage]="'url('+ imgCover.image +')'">
+  <div class="mt-cover"></div>
+
+  <div class="container mt-container text-center text-white">
+    <p class="mt-section__top">
+      <img src="assets/images/animations/rsvp_wh.gif" alt="">
+    </p>
+
+    <form autocomplete="off" novalidate #rsvpForm="ngForm" name="rsvpForm">
+      <div class="row form-group">
+        <div class="col-md-6 mb-3">
+          <label for="name">Tên của bạn*</label>
+          <input type="text"
+            class="form-control mb-0"
+            id="name"
+            placeholder="Vui lòng nhập tên của bạn"
+            [(ngModel)]="rsvp.name"
+            name="uName"
+            #uName="ngModel"
+            required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="phone">Số điện thoại*</label>
+          <input type="text"
+            class="form-control mb-0"
+            id="phone"
+            placeholder="Vui lòng nhập số điện thoại"
+            [(ngModel)]="rsvp.phone"
+            name="uPhone"
+            #uPhone="ngModel"
+            required>
+        </div>
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-6 mb-3">
+          <label for="message">Số người đi cùng*</label>
+          <ng-select [items]="guestes"
+            bindValue="id"
+            bindLabel="num"
+            placeholder="Vui lòng chọn số người đi cùng"
+            (change)="onChangeGuestes($event)"></ng-select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="message">Sự kiện*</label>
+          <ng-select [items]="events"
+            bindValue="id"
+            bindLabel="title"
+            placeholder="Vui lòng chọn sự kiện"
+            (change)="onChangeEvent($event)"></ng-select>
+        </div>
+      </div>
+
+      <div class="form-group text-center">
+        <label for="message">Tin nhắn</label>
+        <textarea class="form-control"
+          id="message"
+          rows="3"
+          [(ngModel)]="rsvp.message"
+          name="message"
+          #message="ngModel"></textarea>
+      </div>
+
+      <div class="w-100 text-center">
+        <button type="submit"
+          class="btn"
+          (click)="sendRSVP()"
+          [disabled]="isSumitting || !rsvpForm.form.valid">Gửi</button>
+      </div>
+    </form>
+  </div>
+</div>

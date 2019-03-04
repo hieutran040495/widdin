@@ -1,0 +1,13 @@
+.v-box-shadow {
+  @include box-shadow(0, 2px, 8px, 0, $box-shadow);
+
+  &--sm {
+    @include box-shadow(0, 2px, 8px, -2px, $box-shadow);
+  }
+
+  @media (max-width: 575px) {
+    &--mobile {
+      box-shadow: unset;
+    }
+  }
+}

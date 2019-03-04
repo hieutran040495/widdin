@@ -1,0 +1,124 @@
+<!-- <div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">Nhạc</h3>
+</div>
+
+<div class="v-content temp-music">
+  <div class="mt-4">
+    <div class="temp-music__audio" >
+      <audio controls  loop autoplay id="audioPlayer">
+        <source src="" type="audio/mpeg">
+        Your browser dose not Support the audio Tag
+      </audio>
+    </div>
+
+    <div class="temp-music__list">
+      <div class="table-responsive mt-4">
+        <table class="table v-table" *ngIf="!isLoading && listMusic.length > 0">
+          <tbody>
+            <tr *ngFor="let music of listMusic" [id]="'tb-tr-'+music.id"
+            [ngClass]="{'event-active': music.active}">
+              <td>
+                <span>{{ music.id }}</span>
+              </td>
+
+              <td>
+                <span class=" v-text-ellipsis" [title]="music.name">
+                  <a href="javascript:void(0)" (click)="selectedMusic(music)">{{ music.name }}</a>
+                </span>
+              </td>
+
+              <td>
+                <span class=" v-text-ellipsis" [title]="music.author">{{ music.author }}</span>
+              </td>
+
+              <td>
+                <span class=" v-text-ellipsis" [title]="music.time">{{ music.time }}</span>
+              </td>
+
+              <td>
+                <span class="d-flex align-items-center">
+                  <div title="Chọn âm thanh chính" class="v-radio">
+                    <input class="v-radio__input"
+                      type="radio"
+                      name="activeEvent"
+                      (change)="activeMusic(music)"
+                      [disabled]="isActivating">
+
+                    <span class="v-radio__circle"></span>
+                    <span class="v-radio__label"></span>
+                  </div>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div *ngIf="!listMusic.length" class="text-center">
+        Không có dữ liệu
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__item-ctn temp-music">
+      <div class="temp-music__audio" >
+        <audio controls  loop autoplay id="audioPlayer">
+          <source src="" type="audio/mpeg">
+          Your browser dose not Support the audio Tag
+        </audio>
+      </div>
+
+      <div class="temp-music__list">
+        <div class="table-responsive mt-4">
+          <table class="table v-table" *ngIf="!isLoading && listMusic.length > 0">
+            <tbody>
+              <tr *ngFor="let music of listMusic" [id]="'tb-tr-'+music.id"
+              [ngClass]="{'v-table--active': music.active}">
+                <td>
+                  <span>{{ music.id }}</span>
+                </td>
+
+                <td>
+                  <span class=" v-text-ellipsis" [title]="music.name">
+                    <a href="javascript:void(0)" (click)="selectedMusic(music)">{{ music.name }}</a>
+                  </span>
+                </td>
+
+                <td>
+                  <span class=" v-text-ellipsis" [title]="music.author">{{ music.author }}</span>
+                </td>
+
+                <td>
+                  <span class=" v-text-ellipsis" [title]="music.time">{{ music.time }}</span>
+                </td>
+
+                <td>
+                  <span class="d-flex align-items-center">
+                    <div title="Chọn âm thanh chính" class="v-radio">
+                      <input class="v-radio__input"
+                        type="radio"
+                        name="activeEvent"
+                        (change)="activeMusic(music)"
+                        [disabled]="isActivating">
+
+                      <span class="v-radio__circle"></span>
+                      <span class="v-radio__label"></span>
+                    </div>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div *ngIf="!listMusic.length" class="text-center">
+          Không có dữ liệu
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

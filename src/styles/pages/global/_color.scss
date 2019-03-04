@@ -1,0 +1,67 @@
+// $col-name: Name of global color
+// $col-main: Main color for a (hover), button
+
+@mixin global-color($col-name, $col-main, $col-main-hover) {
+  @if $col-name == elegant {
+    a {
+      &:hover {
+        color: $col-main;
+      }
+    }
+
+    .v-navbar {
+      @include bg-navbar($bg-white, $col-main);
+    }
+
+    .v-list-group {
+      @include list-group(transparent, $col-main);
+    }
+
+    .v-btn {
+      @include btn-bg($col-main, $col-white, $col-main-hover, $col-white);
+    }
+
+    .v-btn-outline {
+      @include btn-outline($col-main, $col-main);
+    }
+
+    .v-btn-upload {
+      &:hover {
+        .btn {
+          @include btn-hover($col-main-hover, $col-white);
+        }
+      }
+    }
+
+    .v-pagination {
+      @include pagination($col-main);
+    }
+
+    .v-table {
+      &--active {
+        @include table-active($bg-lighter-brown);
+      }
+    }
+
+    .v-radio__input {
+      &:checked {
+        &~ .v-radio__circle {
+          background-color: $col-main;
+          border-color: $col-main;
+        }
+      }
+    }
+
+    .v-loader {
+      & > div {
+        background-color: $col-main;
+      }
+    }
+  }
+}
+
+.v-gl-col {
+  &--elegant {
+    @include global-color(elegant, $col-dark-pink-pastel, $col-dark-pink-pastel-2);
+  }
+}

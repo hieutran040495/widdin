@@ -1,0 +1,91 @@
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+        <button class="btn v-btn--gray" (click)="openDeleteModal()">Xóa album</button>
+
+        <div class="v-btn-upload ml-2 mr-2">
+          <button class="btn v-btn-outline w-100">Thêm ảnh</button>
+          <input (change)="getPhotos($event)"
+            type="file" name="uploadPhotos"
+            [attr.accept]="accept_file" multiple>
+        </div>
+
+        <button class="btn v-btn" (click)="updateAlbum()" [disabled]="isSubmiting">Lưu</button>
+    </div>
+
+    <div class="v-block__item-ctn mt-4">
+      <div *ngIf="!isLoading && detailAlbum.id">
+        <form action="" class="mb-5">
+          <div class="form-group row">
+            <label for="name" class="col-md-2 col-form-label font-weight-bold">Tên album</label>
+
+            <div class="col-md-10 align-self-center">
+              <input type="text"
+                class="form-control"
+                id="name"
+                placeholder="Vui lòng nhập tên của album"
+                name="title"
+                [(ngModel)]="detailAlbum.title"
+                #TitleAlbum="ngModel"
+                maxlength="255">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="memo" class="col-md-2 col-form-label font-weight-bold">Mô tả</label>
+
+            <div class="col-md-10 align-self-center">
+              <textarea class="form-control"
+                id="memo"
+                placeholder="Vui lòng nhập mô tả của album"
+                rows="3"
+                name="memo"
+                [(ngModel)]="detailAlbum.description"
+                #DesAlbum="ngModel"
+                maxlength="255"></textarea>
+            </div>
+          </div>
+        </form>
+
+        <div class="row v-card__wrp">
+          <div class="col-xl-3 col-md-4 col-6 mb-3" *ngFor="let item of detailAlbum.images">
+            <div class="card v-card border-0">
+              <div class="v-card__img">
+                <div class="v-btn__img-del">
+                  <a href="javascript:void(0)" class="text-white" (click)="removeImg(item.id)">
+                    <i class="fa fa-times"></i>
+                  </a>
+                </div>
+
+                <app-v-image imgWidth="100%"
+                  imgHeight="250"
+                  [imgUrl]="item.img_url_sm || '/assets/images/default-black.png'">
+                </app-v-image>
+              </div>
+
+              <!-- <div class="card-body p-0">
+                <input type="text" class="form-control" placeholder="Tên của ảnh">
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+
+      <div *ngIf="!isLoading && !detailAlbum.id" class="text-center">
+        Không có dữ liệu
+      </div>
+
+      <div *ngIf="!isLoading && detailAlbum.id && !detailAlbum.images.length" class="text-center">
+        Không có ảnh nào
+      </div>
+    </div>
+  </div>
+</div>

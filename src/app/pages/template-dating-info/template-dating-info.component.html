@@ -1,0 +1,74 @@
+<div class="v-subheader v-subheader--has-features v-subheader--ud-line">
+  <h3 class="v-subheader__title v-text pb-0">Ngày hẹn hò</h3>
+</div>
+
+<div class="v-content">
+  <div class="mt-4">
+    <form class="v-form" autocomplete="off" novalidate name="datingForm" #datingForm="ngForm">
+      <div class="form-group row">
+        <label for="date" class="col-sm-3 col-form-label">Ngày<span class="v-required">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" 
+            [ngClass]="{ 'is-invalid': startDate.dirty && startDate.errors }"
+            class="form-control" 
+            id="date" 
+            placeholder="Ngày hẹn hò"
+            [(ngModel)]="tempDating.start_date"
+            name="date"
+            #startDate="ngModel"
+            [pattern]="rules.whitespace"
+            required>
+
+            <div class="invalid-feedback"
+              *ngIf="startDate.dirty && startDate.errors?.required">Vui lòng nhập ngày hẹn hò</div>
+
+            <div class="invalid-feedback"
+              *ngIf="startDate.dirty && startDate.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="time" class="col-sm-3 col-form-label">Thời gian<span class="v-required">*</span></label>
+        <div class="col-sm-9">
+          <input type="text" 
+            [ngClass]="{ 'is-invalid': startTime.dirty && startTime.errors }"
+            class="form-control" 
+            id="time" 
+            placeholder="Thời gian hẹn hò"
+            [(ngModel)]="tempDating.start_time"
+            name="time"
+            #startTime="ngModel"
+            [pattern]="rules.whitespace"
+            required>
+
+            <div class="invalid-feedback"
+              *ngIf="startTime.dirty && startTime.errors?.required">Vui lòng nhập giờ hẹn hò</div>
+
+            <div class="invalid-feedback"
+              *ngIf="startTime.dirty && startTime.errors?.pattern">Bạn không thể chỉ nhập khoảng trắng</div>
+        </div>
+      </div>
+
+      <!-- <div class="form-group row">
+        <label for="memo" class="col-sm-3 col-form-label">Mô tả</label>
+        <div class="col-sm-9">
+          <textarea class="form-control" 
+            id="memo" rows="3"
+            placeholder="Mô tả"
+            [(ngModel)]="tempDating.memo"
+            name="memo"
+            #memo="ngModel"></textarea>
+        </div>
+      </div> -->
+
+      <div class="v-btn-group mt-5">
+        <button type="submit" 
+          class="btn v-btn"
+          (click)="submitDating()"
+          [disabled]="isLoading || !datingForm.form.valid">
+          Hoàn thành
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

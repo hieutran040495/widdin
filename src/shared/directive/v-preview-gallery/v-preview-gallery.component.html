@@ -1,0 +1,58 @@
+<div class="v-gallery__preview">
+  <div class="v-gallery__preview-wrp">
+    <div class="v-gallery__preview-top text-right">
+      <a href="javascript:void(0)"
+        (click)="fullSize()"
+        [hidden]="isFullSize"
+        class="fa fa-arrows-alt mr-3"></a>
+
+      <a href="javascript:void(0)"
+        (click)="closeFullSize()"
+        [hidden]="!isFullSize"
+        class="fa fa-times"></a>
+
+      <a href="javascript:void(0)"
+        (click)="closePreview()"
+        [hidden]="isFullSize"
+        class="fa fa-times"></a>
+    </div>
+
+    <div class="v-gallery__preview-img">
+      <div id="gallery" class="carousel slide" data-ride="carousel" data-interval="false">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let item of galleryImages"
+            [id]="'gallery-item-'+item.id">
+            <!-- <img class="d-block" [src]="item.img_url_lg" alt="First slide"> -->
+            <div class="d-block v-gallery__bg-img" [ngStyle]="{'background-image': 'url(' +item.img_url_lg +')'}"></div>
+            <!-- <div class="carousel-caption d-none d-md-block">
+              <h5>{{ item.name }}</h5>
+            </div> -->
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- <div class="v-gallery__preview-img"
+      *ngIf="galleryImages.length > 0
+        && index > -1
+        && !isDisabled">
+      <img class="v-gallery__img" [src]="galleryImages[index].img_url" alt="">
+    </div>
+
+    <div class="v-gallery__preview-ctn text-white"
+      *ngIf="galleryImages.length > 0
+        && index > -1
+        && !isDisabled">
+      {{ galleryImages[index].name }}
+    </div> -->
+  </div>
+</div>

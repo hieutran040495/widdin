@@ -1,0 +1,49 @@
+<div class="v-block">
+  <div class="v-block__item">
+    <div class="v-block__features justify-content-end">
+      <button class="btn v-btn--gray" (click)="openDeleteModal()">Xóa album</button>
+
+      <div class="v-btn-upload ml-2 mr-2">
+        <button class="btn v-btn-outline w-100">Thêm ảnh</button>
+        <input (change)="getPhotos($event)"
+          type="file"  name="uploadPhotos"
+          [attr.accept]="accept_file" multiple>
+      </div>
+
+      <button class="btn v-btn" [routerLink]="['/manager-templates/album/edit', detailAlbum.id]">Sửa</button>
+    </div>
+
+    <div class="v-block__item-ctn mt-4">
+      <div *ngIf="!isLoading && detailAlbum.id">
+        <div class="mb-5 text-center">
+          <h3>{{ detailAlbum.title }}</h3>
+
+          <p class="mb-0">{{ detailAlbum.description }}</p>
+        </div>
+
+        <app-v-gallery imgWidth="100%"
+          imgHeight="250"
+          [galleryImages]="galleryImages"
+          delete="true"
+          (deleteEvent)="deleteEvent($event)">
+        </app-v-gallery>
+      </div>
+
+      <div class="v-loader" *ngIf="isLoading">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+
+      <div *ngIf="!isLoading && !detailAlbum.id" class="text-center">
+        Không có dữ liệu
+      </div>
+
+      <div *ngIf="!isLoading && detailAlbum.id && !detailAlbum.images.length || !isLoading && !galleryImages.length" class="text-center">
+        Không có ảnh nào
+      </div>
+    </div>
+  </div>
+</div>

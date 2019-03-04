@@ -1,0 +1,40 @@
+<div class="mt-glz" *ngIf="!isLoading && userTempInfo.id">
+  <app-m-template04-header
+    [couple]="userTempInfo.couple"
+    [mainEvent]="userTempInfo.main_event">
+  </app-m-template04-header>
+
+  <app-m-template04-slider
+    [couple]="userTempInfo.couple"
+    [mainEvent]="userTempInfo.main_event"
+    [imgCover]="userTempInfo.backgrounds[8]">
+  </app-m-template04-slider>
+
+  <app-m-template04-count-down
+    [mainEvent]="userTempInfo.main_event">
+  </app-m-template04-count-down>
+
+  <app-m-template04-infor
+    [infor]="userTempInfo.couple">
+  </app-m-template04-infor>
+
+  <app-m-template04-maxim
+    [maxims]="userTempInfo.maxims"
+    [imgCover]="userTempInfo.backgrounds[10]">
+  </app-m-template04-maxim>
+
+  <app-m-template04-story
+    [stories]="userTempInfo.stories"
+    [allImages]="allImages">
+  </app-m-template04-story>
+
+  <app-m-template04-event
+    [events]="userTempInfo.events">
+  </app-m-template04-event>
+
+  <app-m-template04-rsvp
+    [events]="userTempInfo.events"
+    [imgCover]="userTempInfo.backgrounds[7]">
+  </app-m-template04-rsvp>
+</div>
+

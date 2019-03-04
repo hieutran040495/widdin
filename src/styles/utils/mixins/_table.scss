@@ -1,0 +1,13 @@
+// $values: array of value of width in column
+@mixin table-col($values) {
+  @each $key, $value in $values {
+    .v-table__col-#{$key} {
+      width: $value;
+	  }
+  }
+}
+
+// $bg-col: background color of tr
+@mixin table-active($bg-col) {
+  background-color: $bg-col;
+}

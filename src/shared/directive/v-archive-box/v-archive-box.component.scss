@@ -1,0 +1,71 @@
+/** Archive Box **/
+.v-arv-box {
+  background: #f4f4f4;
+  padding: 40px 0;
+
+  &__single {
+    text-align: center;
+
+    span {
+      border-bottom: 1px solid #d8d8d8;
+      color: #999;
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+      padding-bottom: 3px;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 36px;
+    }
+  }
+
+  &__multiple {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    h4 {
+      display: inline-block;
+      font-size: 18px;
+    }
+  }
+
+  .breadcrumb {
+    background-color: transparent;
+
+    &-item {
+      a {
+        color: #7e7e7e;
+        transition: all .3s;
+
+        &:hover {
+          color: #333;
+        }
+      }
+
+      a, span {
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__single {
+      h3 {
+        font-size: 25px;
+      }
+    }
+
+    &__multiple {
+      flex-direction: column;
+    }
+
+    .breadcrumb {
+      margin-top: 10px;
+    }
+  }
+}

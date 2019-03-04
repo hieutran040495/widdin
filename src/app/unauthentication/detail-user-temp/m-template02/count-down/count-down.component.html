@@ -1,0 +1,14 @@
+<div class="mt-section mt-count-down" id="invitation" [style.backgroundImage]="'url('+ imgCover.image +')'">
+  <div class="mt-cover"></div>
+
+  <div class="container mt-container text-center text-white">
+    <p class="mt-section__top">
+      <img src="assets/images/animations/save_gold.gif" alt="">
+    </p>
+
+    <h2 class="mt-section__title">{{ mainEvent.start_date_string }}</h2>
+    <h3 class="mt-section__subtitle">{{ mainEvent.address_name }}</h3>
+
+    <app-mt-count-down [date]="mainEvent.start_date_time"></app-mt-count-down>
+  </div>
+</div>

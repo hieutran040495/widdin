@@ -1,0 +1,29 @@
+.v-link {
+  text-decoration: none;
+
+  &--pink {
+    @include link-color($txt-pink, $txt-pink-hover);
+  }
+
+  &--blue {
+    @include link-color($txt-blue, $txt-blue-hover);
+  }
+
+  &--green {
+    @include link-color($txt-green, $txt-green-hover);
+  }
+
+  &--red {
+    @include link-color($txt-red, $txt-red-hover);
+  }
+
+  &--brown {
+    @include link-color($txt-brown, $txt-brown-hover);
+  }
+
+  &--icon {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,43 @@
+.carousel {
+  &-caption {
+    background: linear-gradient(transparent, rgba(.9, .8, .8, .9));
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &-control-next,
+  &-control-prev {
+    background: rgba(0, 0, 0, .67);
+    border-radius: 50%;
+    bottom: unset;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    width: 40px;
+  }
+
+  &-control-next {
+    right: 15px;
+  }
+
+  &-control-prev {
+    left: 15px;
+  }
+
+  @media (max-width: 575px) {
+    &-control-next,
+    &-control-prev {
+      height: 30px;
+      width: 30px;
+    }
+
+    &-control-prev-next-icon,
+    &-control-prev-prev-icon {
+      height: 15px;
+      width: 15px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.mt-maxim {
+  .mt-cover {
+    background-color: #70a076;
+  }
+
+  .mt-container {
+    padding-bottom: 9%;
+    padding-top: 9%;
+    z-index: 2;
+  }
+
+  h4 {
+    font-family: 'farsan';
+    font-size: 28px;
+  }
+
+  @media (max-width: 991px) {
+    h4 {
+      font-size: 25px;
+    }
+  }
+}

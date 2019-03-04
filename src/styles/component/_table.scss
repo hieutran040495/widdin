@@ -1,0 +1,43 @@
+.v-table {
+  &__col {
+    display: inline-block;
+  }
+
+  &--active {
+    transition: all 300ms cubic-bezier(.4, 0, .2, 1);
+  }
+
+  th {
+    border-top: 0;
+    padding-top: 0;
+    text-transform: uppercase;
+  }
+
+  td {
+    span {
+      vertical-align: -webkit-baseline-middle;
+    }
+  }
+
+  .btn {
+    background-color: transparent !important;
+  }
+}
+
+.table-responsive {
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #a9a9a9;
+    border-radius: 10px;
+    outline: 1px solid #708090;
+  }
+}

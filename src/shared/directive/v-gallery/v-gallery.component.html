@@ -1,0 +1,36 @@
+<div class="v-gallery" >
+  <div class="row">
+    <div class="col-xl-3 col-md-4 col-6 mb-3" *ngFor="let item of galleryImages; let i = index">
+
+        <div class="card v-card" [id]="'temp-'+item.id">
+          <div class="v-card__img">
+            <div class="v-btn__img-del" *ngIf="delete">
+              <a href="javascript:void(0)" class="text-white" (click)="removeImage(item.id)">
+                <i class="fa fa-times"></i>
+              </a>
+            </div>
+
+            <a href="javascript:void(0)" (click)="showImage(item)">
+              <app-v-image [imgWidth]="imgWidth"
+                [imgHeight]="imgHeight"
+                [imgUrl]="item.img_url_sm">
+              </app-v-image>
+            </a>
+          </div>
+
+          <!-- <div class="card-body">
+            <div class="v-card-features d-flex justify-content-between">
+              <h5 class="v-text card-title v-card__title font-weight-bold v-text-ellipsis mb-0">{{ item.name_string }}</h5>
+            </div>
+          </div> -->
+        </div>
+    </div>
+  </div>
+
+  <app-v-preview-gallery *ngIf="isOpenPreview"
+    [galleryImages]="galleryImages"
+    [isOpenPreview]="isOpenPreview"
+    [selectedItem]="selectedImg"
+    (closedPreview)="closedPreview($event)">
+  </app-v-preview-gallery>
+</div>

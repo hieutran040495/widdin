@@ -1,0 +1,7 @@
+@mixin link-color($col-txt, $col-txt-hover) {
+  color: $col-txt;
+
+  &:hover {
+    color: $col-txt-hover;
+  }
+}

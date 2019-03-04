@@ -1,0 +1,14 @@
+.v-timepicker {
+  position: relative;
+
+  &__table {
+    background: #fff;
+    box-shadow: 0 0 10px 0 #aaa;
+    left: 0;
+    padding: 15px;
+    position: absolute;
+    top: 40px;
+    width: fit-content;
+    z-index: 1;
+  }
+}

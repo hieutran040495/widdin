@@ -1,0 +1,80 @@
+.mt-infor {
+  background: 50% 49px rgb(238, 238, 238);
+  overflow: hidden;
+  position: relative;
+
+  &__lg-block {
+    &:last-child {
+      flex-direction: row-reverse;
+    }
+  }
+
+  &__sm-block {
+    -webkit-background-size: cover;
+    background-color: #fff;
+    background-position: center;
+    background-size: cover;
+    height: 520px;
+    position: relative;
+    width: 50%;
+
+    h2 {
+      margin-bottom: 60px;
+    }
+
+    a {
+      display: inline-block;
+      font-size: 25px;
+      text-align: center;
+      transition: all .2s;
+      vertical-align: top;
+      width: 40px;
+
+      &:hover {
+        font-size: 30px;
+      }
+    }
+  }
+
+  &__wrp-block {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__social {
+    display: block;
+    height: 50px;
+  }
+
+  &__icon-box {
+    -o-transition: all .6s;
+    -webkit-transition: all .6s;
+    padding: 0 10px;
+    transition: all .6s;
+
+  }
+
+  @media (max-width: 991px) {
+    &__lg-block {
+      flex-direction: column !important;
+    }
+
+    &__sm-block {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &__sm-block {
+      height: 400px;
+    }
+
+    &__wrp-block {
+      left: 0;
+      padding: 0 15px;
+      transform: translate(0, -50%);
+    }
+  }
+}

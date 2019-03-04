@@ -1,0 +1,53 @@
+.mt-section {
+  &.mt-count-down {
+    background-color: #f7f7f7;
+    padding-bottom: 140px;
+    position: relative;
+
+    h2,
+    h3 {
+      color: #212529;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 25px;
+    }
+
+    .mt-section__top {
+      bottom: -75px;
+      left: 0;
+      margin-bottom: 0 !important;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      z-index: 1;
+
+      img {
+        height: 160px !important;
+      }
+    }
+  }
+}
+
+
+#clock {
+  .countdown {
+    &-section {
+      background-color: #fff;
+    }
+
+    &-amount {
+      color: #71a27e;
+    }
+
+    &-period {
+      color: #212529;
+      font-size: 15px !important;
+      text-transform: uppercase;
+    }
+  }
+}

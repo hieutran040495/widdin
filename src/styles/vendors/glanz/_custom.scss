@@ -1,0 +1,144 @@
+// Music and scroll top
+.gla_second_step {
+  .gla_music_icon {
+    right: 100px !important;
+  }
+
+  .gla_top {
+    bottom: 45px !important;
+    opacity: 1 !important;
+  }
+}
+
+.gla_first_step {
+  header nav.gla_transp_nav {
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .1) !important;
+    background-color: rgba(255, 255, 255, .9) !important;
+    box-shadow: 0 0 7px rgba(0, 0, 0, .1) !important;
+    color: #333 !important;
+
+    a {
+      color: #333 !important;
+    }
+
+    .gla_main_menu_icon b {
+      color: #333;
+    }
+
+    .gla_main_menu_icon i {
+      background: #333 !important;
+    }
+
+    .gla_logo_rev {
+      filter: invert(100%);
+    }
+  }
+}
+
+.gla_main_menu {
+  &_icon_b {
+    display: none;
+  }
+
+  &.active {
+    b {
+      &:first-of-type {
+        display: none;
+      }
+    }
+
+    .gla_main_menu_icon_b {
+      display: inline-block;
+    }
+  }
+}
+
+// Countdown
+.countdown-section {
+  display: inline-block;
+  margin: 0 30px 0 0;
+}
+
+.text-center .countdown-section {
+  margin: 0 30px;
+}
+
+.countdown-amount {
+  display: block;
+  font: 400 60px/80px Playfair Display, Dosis, Arial;
+}
+
+.gla_countdown_gold .countdown-amount {
+  height: 150px;
+}
+
+.countdown-period {
+  font: italic 400 14px/14px Playfair Display, Arial;
+}
+
+/*Gold Numbers*/
+
+.countdown-amount span {
+  background-image: url(../assets/images/animations/gold_numbers_wh.gif);
+  display: inline-block;
+  height: 150px;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.gla_wht_txt .countdown-amount span {
+  background-image: url(../assets/images/animations/gold_numbers.gif);
+}
+
+.gla_image_day.gla_image0, 
+.gla_image_hours.gla_image0, 
+.gla_image_minutes.gla_image0, 
+.gla_image_seconds.gla_image0 {
+  display: none;
+}
+
+.gla_countdown_gold .countdown-section {
+  min-width: 185px;
+}
+
+.countdown-amount {
+  .gla_image0 {
+    width: 82px;
+  }
+  .gla_image1 {
+    width: 46px;
+    background-position: -130px 0;
+  }
+  .gla_image2 {
+    width: 72px;
+    background-position: -209px 0;
+  }
+  .gla_image3 {
+    width: 80px;
+    background-position: -312px 0;
+  }
+  .gla_image4 {
+    width: 74px;
+    background-position: -426px 0;
+  }
+  .gla_image5 {
+    width: 76px;
+    background-position: -531px 0;
+  }
+  .gla_image6 {
+    width: 75px;
+    background-position: -650px 0;
+  }
+  .gla_image7 {
+    width: 75px;
+    background-position: -768px 0;
+  }
+  .gla_image8 {
+    width: 85px;
+    background-position: -867px 0;
+  }
+  .gla_image9 {
+    width: 75px;
+    background-position: -985px 0;
+  }
+}

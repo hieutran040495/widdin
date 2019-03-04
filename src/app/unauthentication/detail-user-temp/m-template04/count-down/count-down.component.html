@@ -1,0 +1,14 @@
+<div class="mt-section mt-count-down" id="invitation">
+  <p class="mt-section__top">
+    <img src="assets/images/decor/green-flower.png" alt="">
+  </p>
+
+  <div class="container mt-container text-center text-white">
+    <div class="mt-count-down__top">
+      <h2 class="mt-section__title">{{ mainEvent.start_date_string_short }}</h2>
+      <h3 class="mt-section__subtitle">{{ mainEvent.address_name }}</h3>
+
+      <app-mt-count-down [date]="mainEvent.start_date_time"></app-mt-count-down>
+    </div>
+  </div>
+</div>

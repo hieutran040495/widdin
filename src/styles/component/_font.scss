@@ -1,0 +1,21 @@
+.v-font {
+  &--xl {
+    @include font-size (xl);
+  }
+
+  &--lg {
+    @include font-size (lg);
+  }
+
+  &--md {
+    @include font-size (md);
+  }
+
+  &--sm {
+    @include font-size (sm);
+  }
+
+  &--xs {
+    @include font-size (xs);
+  }
+}

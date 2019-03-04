@@ -1,0 +1,78 @@
+.mt-logo {
+  h5 {
+    font-weight: bold;
+  }
+
+  .navbar-brand {
+    font-family: 'dancing';
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  &__time {
+    font-family: 'farsan';
+    font-size: 17px;
+  }
+}
+
+.mt-navbar {
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: all .3s;
+  width: 100%;
+  z-index: 10;
+
+  &--trans {
+    background-color: rgba(255, 255, 255, 0);
+    border-bottom: 1px solid rgba(255, 255, 255, .05);
+    color: $col-white;
+
+    .navbar-brand,
+    .nav-link,
+    .nav-item,
+    .navbar-toggler {
+      color: $col-white;
+    }
+  }
+
+  &--light {
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .15);
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 0 0 7px rgba(0, 0, 0, .15);
+    color: #333;
+
+    .navbar-brand,
+    .nav-link,
+    .nav-item,
+    .navbar-toggler {
+      color: #333;
+    }
+
+    .active {
+      .nav-link {
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  .navbar-toggler {
+    outline: none;
+
+    &:hover {
+      .fa {
+        color: #6f6f6f;
+      }
+    }
+  }
+
+  .nav-link {
+    font-family: 'arimaMadurai';
+    font-size: 18px;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

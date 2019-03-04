@@ -1,0 +1,20 @@
+@mixin decor-animate($url-bg) {
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  -webkit-animation: decor_rotate 425s infinite linear;
+  -webkit-background-size: cover;
+  -webkit-transform-origin: 50% 50%;
+  animation: decor_rotate 425s infinite linear;
+  background: url($url-bg);
+  background-size: cover;
+  content: '';
+  display: block;
+  height: 485px;
+  margin: -60px 0 0 -55px;
+  position: absolute;
+  top: 0;
+  transform-origin: 50% 50%;
+  width: 485px;
+  z-index: 1;
+}
